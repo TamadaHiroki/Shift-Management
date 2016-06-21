@@ -10,7 +10,6 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use Auth;
-use App\UserCustom;
 use Session;
 use Validator;
 use Request;
@@ -34,7 +33,9 @@ class AdminLoginController extends Controller{
             // 認証通過…
             return redirect()->intended('/admin/top');
         }else{
-            return redirect()->back()->withInput();
+            return redirect()->back()
+                ->withErrors("ID または Passwordが違います")
+                ->withInput();
         }
     }
 

@@ -93,7 +93,14 @@ Route::group(['middleware' => 'authShift', 'prefix' => 'shift'], function () {  
         Auth::guard('shiftAdmin')->logout();
         return redirect("shift/login");   //test用
     });
-
+    Route::group(['prefix' => 'management'], function(){
+        Route::get('/view', 'ShiftManagementController@manageView');
+        Route::get('/register', 'ShiftManagementController@manageRegister');
+        Route::post('/register', 'ShiftManagementController@manageRegister');
+        Route::post('/update', 'ShiftManagementController@manageUpdate');
+        Route::post('/delete', 'ShiftManagementController@manageDelete');
+    });
+    
 });
 
 /**

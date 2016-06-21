@@ -42,6 +42,7 @@
                             {!! csrf_field() !!}
                         <input class="form-control" type="text" placeholder="ID" name="id" value="{{ old('id') }}">
                         <input class="form-control" type="password" placeholder="Password" name="password" value="{{ old('password') }}">
+                            @include('common.errors')   <!-- 子の呼び出し (Errorの場合)-->
                         <div class="action">
                             <button class="btn btn-primary signup" type="submit">Login</button>
                         </div>

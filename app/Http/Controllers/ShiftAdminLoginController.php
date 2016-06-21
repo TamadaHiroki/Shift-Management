@@ -34,7 +34,9 @@ class ShiftAdminLoginController extends Controller{
             // 認証通過…
             return redirect()->intended('/shift/top');
         }else{
-            return redirect()->back()->withInput();
+            return redirect()->back()
+                ->withErrors("ID または Passwordが違います")
+                ->withInput();
         }
     }
 

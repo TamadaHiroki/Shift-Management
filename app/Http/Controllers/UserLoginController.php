@@ -34,16 +34,17 @@ class UserLoginController extends Controller{
             // 認証通過…
             return redirect()->intended('/user/top');
         }else{
-            //エラーメッセージ作成
-            $messages = [
-                'required' => ':attributeフィールドは必須です。',
-                'max' => ':attributeフィールドの文字数は:maxまでです。',
-            ];
-            $validator = Validator::make(Request::all(), [
-                'id' => 'required|max:10',   //required = 空白が無いか
-                'password' => 'required|max:10',   //required = 空白が無いか
-            ], $messages);
+//            //エラーメッセージ作成
+//            $messages = [
+//                'required' => ':attributeフィールドは必須です。',
+//                'max' => ':attributeフィールドの文字数は:maxまでです。',
+//            ];
+//            $validator = Validator::make(Request::all(), [
+//                'id' => 'required|max:10',   //required = 空白が無いか
+//                'password' => 'required|max:10',   //required = 空白が無いか
+//            ], $messages);
             return redirect()->back()
+                ->withErrors("ID または Passwordが違います")
                 ->withInput();
                 //->with('id', '正しく入力しろ');
                 //->withErrors($validator);
