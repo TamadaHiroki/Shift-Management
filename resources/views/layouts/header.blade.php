@@ -1,10 +1,12 @@
+
+
 <div class="header">
     <div class="container">
         <div class="row">
             <div class="col-md-5">
                 <!-- Logo -->
                 <div class="logo">
-                    <h1><a href="main.html">シフト管理(β) @yield('title')</a></h1>
+                    <h1> <font color="white">シフト管理(β) @yield('title') </font></h1>
                 </div>
             </div>
             <div class="col-md-5">
@@ -18,7 +20,9 @@
                 <div class="navbar navbar-inverse" role="banner">
                     <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                         <ul class="nav navbar-nav">
-                            <a href="logout.html">ログアウト </a>
+
+                            <button type="button" onclick="location.href='logout'" class="btn btn-lg btn-block btn-success">ログアウト</button>
+                            <!--<a href="logout.html"><font color="white">ログアウト</font> </a>-->
 
                             </li>
                         </ul>
