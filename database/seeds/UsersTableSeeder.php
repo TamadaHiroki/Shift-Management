@@ -18,10 +18,10 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('ecc'),    //パスワードはハッシュ値しないといけない
             'email' => 'ecc@gmail.com',
         ]);
-        DB::table('users')->insert([
-            'username' => 'test2',
-            'password' => Hash::make('ECC'),    //パスワードはハッシュ値しないといけない
-            'email' => 'ecc@gmail.com',
-        ]);
+//        DB::table('users')->insert([
+//            'username' => 'test2',
+//            'password' => Hash::make('ECC'),    //パスワードはハッシュ値しないといけない
+//            'email' => 'ecc@gmail.com',
+//        ]);
     }
 }
