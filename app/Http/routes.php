@@ -86,18 +86,34 @@ Route::group(['middleware' => 'guestShift','prefix' => 'shift'], function () {
 Route::group(['middleware' => 'authShift', 'prefix' => 'shift'], function () {    //prefixは付けると /userとなる
     Route::get('/top', function ()    {
         // authミドルウェアが使用される
-        return "OK!";   //test用
+        //return "OK!";   //test用
+        //return redirect("shift/management/view");
+        return view('employeeManagement');
     });
     Route::get('/logout', function ()    {
         // authミドルウェアが使用される
         Auth::guard('shiftAdmin')->logout();
         return redirect("shift/login");   //test用
     });
+    /**
+     * 従業員管理画面のグループ
+     */
     Route::group(['prefix' => 'management'], function(){
+
+        //従業員一覧表示
         Route::get('/view', 'ShiftManagementController@manageView');
+//        Route::get('/view', function(){
+//            $users = UserCustom::all();     //全モデルを取得する
+//            return $users;
+//        });
+        //従業員の登録
         Route::get('/register', 'ShiftManagementController@manageRegister');
         Route::post('/register', 'ShiftManagementController@manageRegister');
+        //従業員の更新
+        Route::get('/update', 'ShiftManagementController@manageUpdate');
         Route::post('/update', 'ShiftManagementController@manageUpdate');
+        //従業員の削除
+        Route::get('/delete', 'ShiftManagementController@manageDelete');
         Route::post('/delete', 'ShiftManagementController@manageDelete');
     });
     
