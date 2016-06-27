@@ -4,14 +4,6 @@
     @@parent
     @endsection
 
-@section('header')
-    @@parent
-    @endsection
-
-@section('sidebar')
-    @@parent
-    @endsection
-
 @section('content')
     <div class="col-md-10">
         <div class="row">
@@ -32,7 +24,3 @@
         </div>
     </div>
 @endsection
-
-@section('footer')
-    @@parent
-    @endsection

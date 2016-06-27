@@ -18,3 +18,8 @@ Route::get('/', function () {
 Route::get('main', function () {
     return view('main');
 });
+
+
+Route::get('admin/main', function () {
+    return view('admin.main');
+});
