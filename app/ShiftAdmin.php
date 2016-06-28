@@ -14,6 +14,6 @@ class ShiftAdmin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'password', 'email',
+        'password', 'email',
     ];
 }

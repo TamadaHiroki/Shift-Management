@@ -14,7 +14,6 @@ class ShiftAdminTableSeeder extends Seeder
         DB::table('shift_admin')->truncate();
 
         DB::table('shift_admin')->insert([
-            'username' => 'shift',
             'password' => Hash::make('ecc'),    //パスワードはハッシュ値しないといけない
             'email' => 'ecc@gmail.com',
         ]);

@@ -14,7 +14,7 @@ class CreateShiftAdminTable extends Migration
     {
         Schema::create('shift_admin', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username');
+            //$table->string('username');
             $table->string('password');
             $table->string('email');
             $table->string('remember_token');
