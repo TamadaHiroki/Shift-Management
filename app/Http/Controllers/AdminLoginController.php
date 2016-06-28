@@ -29,7 +29,7 @@ class AdminLoginController extends Controller{
         //Guardを選択()
         $auth = Auth::guard('admin');
 
-        if ($auth->attempt(['username' => Request::get('id'), 'password' => Request::get('password')])) {
+        if ($auth->attempt(['id' => Request::get('id'), 'password' => Request::get('password')])) {
             // 認証通過…
             return redirect()->intended('/admin/top');
         }else{

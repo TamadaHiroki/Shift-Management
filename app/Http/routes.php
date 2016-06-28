@@ -86,9 +86,9 @@ Route::group(['middleware' => 'guestShift','prefix' => 'shift'], function () {
 Route::group(['middleware' => 'authShift', 'prefix' => 'shift'], function () {    //prefixは付けると /userとなる
     Route::get('/top', function ()    {
         // authミドルウェアが使用される
-        //return "OK!";   //test用
+        return "OK!";   //test用
         //return redirect("shift/management/view");
-        return view('employeeManagement');
+        //return view('employeeManagement');
     });
     Route::get('/logout', function ()    {
         // authミドルウェアが使用される
