@@ -14,6 +14,6 @@ class UserCustom extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'password', 'email','employee_id', 'store_id', 'position_id', 'tell'
+        'id', 'username', 'password', 'email','store_id', 'position_id', 'tell', 'password_no_hash'
     ];
 }

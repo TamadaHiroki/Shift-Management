@@ -30,7 +30,7 @@ class ShiftAdminLoginController extends Controller{
         //Guardを選択()
         $auth = Auth::guard('shiftAdmin');
 
-        if ($auth->attempt(['username' => Request::get('id'), 'password' => Request::get('password')])) {
+        if ($auth->attempt(['id' => Request::get('id'), 'password' => Request::get('password')])) {
             // 認証通過…
             return redirect()->intended('/shift/top');
         }else{

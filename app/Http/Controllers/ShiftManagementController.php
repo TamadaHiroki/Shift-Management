@@ -12,13 +12,14 @@ use Auth;
 use Session;
 use Validator;
 use Request;
+use Hash;
 use App\Http\Requests;
 
 class ShiftManagementController extends Controller{
     //従業員の表示
     public function manageView(){
         //$users = UserCustom::all();     //全モデルを取得する
-        $users = UserCustom::get(['username', 'email', 'employee_id', 'tell']);     //名前とメールアドレスを取得してみる
+        $users = UserCustom::get(['id','username','email',  'tell']);
 
         return $users;
         //return "test";
@@ -26,9 +27,13 @@ class ShiftManagementController extends Controller{
     //従業員の登録
     public function manageRegister(){
         //$users = UserCustom::all();     //全モデルを取得する
-        UserCustom::create(array('username' => 'test3','password' => 'ecc3',));
+        $users = Request::all();
+        $pass = $this->makeRandStr(6);  //仮パスワード生成
+        $users = array_merge($users, array("password"=>Hash::make($pass)));  //usersテーブル追加登録
+        UserCustom::create($users);
 
-        return "完了";
+        //return UserCustom::get(['password_no_hash', 'employee_id']);
+        return redirect('/shift/management/view');
         //return "test";
     }
     //従業員の更新
@@ -55,6 +60,19 @@ class ShiftManagementController extends Controller{
 
         return redirect('/shift/management/view');
         //return "test";
+    }
+
+    /**
+     * ランダム文字列生成 (英数字)
+     * $length: 生成する文字数
+     */
+    function makeRandStr($length) {
+        $str = array_merge(range('a', 'z'), range('0', '9'), range('A', 'Z'));
+        $r_str = null;
+        for ($i = 0; $i < $length; $i++) {
+            $r_str .= $str[rand(0, count($str) - 1)];
+        }
+        return $r_str;
     }
 
 }

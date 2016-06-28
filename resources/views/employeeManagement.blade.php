@@ -21,7 +21,7 @@
         {!! csrf_field() !!}
         <input class="form-control" type="text" placeholder="Store_id" name="store_id" value="{{ old('store_id') }}">
         <input class="form-control" type="text" placeholder="Username" name="username" value="{{ old('username') }}">
-        <input class="form-control" type="text" placeholder="Position" name="position" value="{{ old('position') }}">
+        <input class="form-control" type="text" placeholder="Position" name="position_id" value="{{ old('position_id') }}">
         <input class="form-control" type="text" placeholder="Email" name="email" value="{{ old('email') }}">
         <input class="form-control" type="text" placeholder="Tell" name="tell" value="{{ old('tell') }}">
 

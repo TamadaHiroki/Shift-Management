@@ -12,11 +12,11 @@ class CreateUsersAddTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function ($table) {
-            $table->integer('employee_id');
+        Schema::table('users', function ($table) {;
             $table->integer('store_id');
             $table->integer('position_id');
             $table->string('tell');
+            //$table->string('password_no_hash');
         });
     }
 
@@ -28,7 +28,7 @@ class CreateUsersAddTable extends Migration
     public function down()
     {
         Schema::table('users', function ($table) {
-            $table->dropColumn(['employee_id', 'store_id', 'position_id', 'tell']);
+            $table->dropColumn(['store_id', 'position_id', 'tell']);
         });
     }
 }
