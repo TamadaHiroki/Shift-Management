@@ -36,7 +36,7 @@
             var id = 0;
 
             addRow = function() {
-                $('#example tr:last').after('<tr><td>' + (id += 1) +'</td><td>ポジション</td><td align="center">00:00</td><td align="center">00:00</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
+                $('#example tbody').append('<tr><td>' + (id += 1) +'</td><td>ポジション</td><td align="center">00:00</td><td align="center">00:00</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
             };
 
             $('#add').on('click', function() {
@@ -45,11 +45,11 @@
 
             $('#edit').on('click',function () {
                 if(flag){
-                    $("#example > tbody").on('click','td',edit_toggle());
+                    $("#example > tbody").on('click','tr > td',edit_toggle());
                     $("#edit_text").text(" 確定 ");
                     flag=false
                 }else{
-                    $("#example > tbody").off('click','td');
+                    $("#example > tbody").off('click','tr > td');
                     $("#edit_text").text(" 編集 ");
                     flag=true
                 }
@@ -61,14 +61,14 @@
 
             $(document).on({
                 'mouseenter':function(){
-                    var idx = $(this).index() + 1
+                    var idx = $(this).index() + 1;
                     var tds = $(this).closest("table.table").find("td:nth-child(" + idx + ")");
                     tds.css("background-color","#FFFF99");
                     $(this).css("background-color","#f99");
                     $(this).siblings().css('background', '#FFFF99');
                 },
                 'mouseleave':function(){
-                    var idx = $(this).index() + 1
+                    var idx = $(this).index() + 1;
                     var tds = $(this).closest("table.table").find("td:nth-child(" + idx + ")");
                     tds.css("background-color","#fff");
                     $(this).css("background-color","#fff");
@@ -96,14 +96,15 @@
         }
 
         function edit_toggle(){
+            console.log($(this));
             var edit_flag=false;
-            return function(){
-                if(edit_flag) return;
-                var $input = $("<input>").attr("type","text").val($(this).text());
+            return function() {
+                if (edit_flag) return;
+                var $input = $("<input>").attr("type", "text").val($(this).text());
                 $(this).html($input);
 
-                $("input", this).focus().blur(function(){
-                    save(this);
+                $("input", this).focus().blur(function () {
+                    //save(this);
                     $(this).after($(this).val()).unbind().remove();
                     edit_flag = false;
                 });
