@@ -16,7 +16,7 @@
 			    <div class="col-md-10">
 			        <div class="row">
 			 	<div class="content-box-large">
-						<h1>従業員追加</h1>
+						<h1>従業員情報変更</h1>
 			  				<div class="panel-body">
 			  					<form action="">
 									<fieldset>
@@ -42,7 +42,6 @@
 												<option value="a">商品補充</option>
 											</select>
 										</div>
-
 										<table class="table table-bordered">
 											<thead>
 												<tr>
@@ -57,7 +56,7 @@
 											</thead>
 											<tbody>
 												<tr style="background-color:#CCFFFF">
-												        <td>
+												      <td>
 														<select>
 															<option value="6">6</option>
 															<option value="7">7</option>
@@ -920,12 +919,14 @@
 														分まで
 													</td>
 													
+
+													
 												</tr>
 											</tbody>
 										</table>
 										<div>※水色の欄＝始業可能時間　白色の欄＝最終就業時間</div>
 										<div>※ひとつの曜日につき２つ時間帯を入力できます</div>
-										 <button class="btn btn-success btn-lg">追加</button>
+										 <button class="btn btn-warning btn-lg">変更</button>
 									</fieldset>
 								</div>
 							        </div>

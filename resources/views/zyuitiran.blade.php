@@ -43,7 +43,7 @@
 								<td>090</td>
 								<td>＠ecc</td>
 								<td>食品</td>
-								<td><button class="btn btn-default btn-xs">週間表示</button></td>
+								<td><button class="btn btn-default btn-xs" id="modal-open">週間表示</button></td>
 								<td><button class="btn btn-default btn-xs">変更</button></td> 
 							</tr>
 						</tbody>
