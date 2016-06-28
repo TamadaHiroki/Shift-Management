@@ -45,6 +45,21 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        //追加　usersテーブル用
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        //追加　シフト管理者テーブル用
+        'shiftAdmin' => [
+            'driver' => 'session',
+            'provider' => 'shiftAdmins',
+        ],
+        //追加　店舗管理者テーブル用
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -67,7 +82,15 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\UserCustom::class,  //別のユーザーテーブルを作ったら変更
+        ],
+        'shiftAdmins' => [
+            'driver' => 'eloquent',
+            'model' => App\ShiftAdmin::class, //後々ここを変更
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class, //後々ここを変更
         ],
 
         // 'users' => [
