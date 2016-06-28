@@ -49,5 +49,11 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'authUser' => \App\Http\Middleware\AuthenticateUser::class,
+        'guestUser' => \App\Http\Middleware\RedirectIfAuthenticatedUser::class,
+        'authShift' => \App\Http\Middleware\AuthenticateShift::class,
+        'guestShift' => \App\Http\Middleware\RedirectIfAuthenticatedShift::class,
+        'authAdmin' => \App\Http\Middleware\AuthenticateAdmin::class,
+        'guestAdmin' => \App\Http\Middleware\RedirectIfAuthenticatedAdmin::class,
     ];
 }
