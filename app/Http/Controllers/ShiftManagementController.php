@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 use App\UserCustom;
 use Auth;
+use Illuminate\Mail\Mailer;
 use Session;
 use Validator;
 use Request;
@@ -73,6 +74,10 @@ class ShiftManagementController extends Controller{
             $r_str .= $str[rand(0, count($str) - 1)];
         }
         return $r_str;
+    }
+
+    function userCreate(Mailer $mailer, array $data, $app_key){
+
     }
 
 }
