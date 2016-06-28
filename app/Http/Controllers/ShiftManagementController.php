@@ -19,8 +19,9 @@ class ShiftManagementController extends Controller{
     //従業員の表示
     public function manageView(){
         //$users = UserCustom::all();     //全モデルを取得する
-        $users = UserCustom::get(['id','username','email',  'tell']);
+        $users = UserCustom::get(['id','username','tell', 'email',  'position_id']);
 
+        return view('zyuitiran', ["users" => $users]);
         return $users;
         //return "test";
     }
