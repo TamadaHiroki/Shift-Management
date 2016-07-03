@@ -148,3 +148,7 @@ Route::group(['middleware' => 'authAdmin', 'prefix' => 'admin'], function () {  
         return redirect("admin/login");   //test用
     });
 });
+
+    Route::get('index', function () {
+        return view('index');
+    });
