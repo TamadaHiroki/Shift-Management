@@ -32,7 +32,7 @@ class ShiftAdminLoginController extends Controller{
 
         if ($auth->attempt(['id' => Request::get('id'), 'password' => Request::get('password')])) {
             // 認証通過…
-            return redirect()->intended('/shift/top');
+            return redirect()->intended('/shift/management/view');
         }else{
             return redirect()->back()
                 ->withErrors("ID または Passwordが違います")
