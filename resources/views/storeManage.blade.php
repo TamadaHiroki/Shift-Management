@@ -12,6 +12,7 @@
                     <th>店舗ID</th>
                     <th>店舗名</th>
                     <th>シフト担当者ID</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -20,7 +21,6 @@
             <center>
                 <button type="button" class="btn btn-primary" id="add"><i class="glyphicon glyphicon-ok-sign"></i> 登録 </button>
                 <button type="button" class="btn btn-info" id="edit"><i class="glyphicon glyphicon-pencil"></i><span id="edit_text"> 編集 </span></button>
-                {{--<button type="button" class="btn btn-danger" id="delete"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button>--}}
                 <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-refresh"></i> 戻る </button>
             </center>
         </div>
@@ -34,6 +34,11 @@
             var flag = true;
             var id = 0;
             var sid= 0;
+
+
+            addRow = function() {
+                $('#example tbody').append('<tr><td>' + (id += 1) +'</td><td>ポジション</td><td align="center">00:00</td><td align="center">00:00</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
+            };
 
             addRow = function() {
                 $('#example tbody').append('<tr><td>' + (id += 1) +'</td><td>店舗名を入力</td><td align="center">' + (sid += 1) +'</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
@@ -100,6 +105,9 @@
             var edit_flag=false;
             return function() {
                 if (edit_flag) return;
+
+                //if($("#example").Rows.cells[4]) return;
+
                 var $input = $("<input>").attr("type", "text").val($(this).text());
                 $(this).html($input);
 

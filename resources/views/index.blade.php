@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="content-box-large">
+    <div class="content-box-large">
         <div class="panel-heading">
             <div class="panel-title"><h2>ポジション管理</h2></div>
         </div>
@@ -100,6 +101,7 @@
             var edit_flag=false;
             return function() {
                 if (edit_flag) return;
+                if($("#example").Rows.cells[3]) return;
                 var $input = $("<input>").attr("type", "text").val($(this).text());
                 $(this).html($input);
 

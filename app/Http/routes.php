@@ -161,7 +161,7 @@ Route::get('main', function () {
 });
 
 Route::get('admin/main', function () {
-    return view('admin.main');
+    return view('storeManage');
 });
 
 Route::get('index', function () {
