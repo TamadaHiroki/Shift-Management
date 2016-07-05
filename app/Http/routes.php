@@ -167,3 +167,7 @@ Route::get('admin/main', function () {
 Route::get('index', function () {
     return view('index');
 });
+
+Route::get('sift', function () {
+    return view('sift');
+});

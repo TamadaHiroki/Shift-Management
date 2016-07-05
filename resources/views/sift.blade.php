@@ -1,118 +1,137 @@
-@extends('layouts.master)
+@extends('layouts.noside_master')
 
-<div class="page-content">
-    <div class="row">
-        <div class="col-md-2">
-            <div class="sidebar content-box" style="display: block;">
-                <ul class="nav">
-                    <!-- Main menu -->
+@section('content')
+    <div class="page-content">
 
-                    <!--�T�C�h�o�[-->
-                    <li class="current"><a href="index.html"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-                    <li><a href="calendar.html"><i class="glyphicon glyphicon-calendar"></i> Calendar</a></li>
-                    <li><a href="stats.html"><i class="glyphicon glyphicon-stats"></i> Statistics (Charts)</a></li>
-                </ul>
-                <!--���T�C�h�o�[�I���-->
+        <!-- styles -->
+        <button  class="btn btn-info btn-lg"> 先週 </button>
+        <button class="btn btn-info btn-lg" id = "edit2"> 次週 </button>
+        <button class="btn btn-info btn-lg" id = "edit"> 戻る </button>
+
+        <div class="content-box-large">
+            <div class="panel-body">
+                <table class="table" id="sift">
+                    <thead>
+                    <tr>
+                        <th>ポジション</th>
+                        <th>名前</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>軍艦</td>
+                        <td>1-2</td>
+                        <td>1-3</td>
+                        <td>1-4</td>
+                        <td>1-5</td>
+                        <td>1-6</td>
+                        <td>1-7</td>
+                        <td>1-8</td>
+                        <td>1-9</td>
+                    </tr>
+                    <tr>
+                        <td>2-1</td>
+                        <td>2-2</td>
+                        <td>2-3</td>
+                        <td>2-4</td>
+                        <td>2-5</td>
+                        <td>2-6</td>
+                        <td>2-7</td>
+                        <td>2-8</td>
+                        <td>2-9</td>
+                    </tr>
+                    <tr>
+                        <td>3-1</td>
+                        <td>3-2</td>
+                        <td>3-3</td>
+                        <td>3-4</td>
+                        <td>3-5</td>
+                        <td>3-6</td>
+                        <td>3-7</td>
+                        <td>3-8</td>
+                        <td>3-9</td>
+                    </tr>
+                    <tr>
+                        <td>4-1</td>
+                        <td>4-2</td>
+                        <td>4-3</td>
+                        <td>4-4</td>
+                        <td>4-5</td>
+                        <td>4-6</td>
+                        <td>4-7</td>
+                        <td>4-8</td>
+                        <td>4-9</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
-        <div class="col-md-10">
-            <div class="row">
-
-
-                <!---���C���̉��--->
-                <!-- styles -->
-                <link href="css/buttons.css" rel="stylesheet">
-                &nbsp
-                &nbsp
-                &nbsp
-                <button  class="btn btn-info btn-lg">��T</button>
-                <button class="btn btn-info btn-lg">���T</button>
-                <button class="text-right bg -danger"></button>
-                <button class="btn btn-info btn-lg">�߂�</button>
-
-                </span>
-                <br>
-                <div class="col-md-6">
-                    <div class="content-box-large">
-                        <div class="panel-heading">
-                            <div class="panel-title">Table with row classes</div>
-
-                            <div class="panel-options">
-                                <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
-                                <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <table class="table">
-                                <thead>
-                                <!-- <tr>
-                                   <th>#</th>
-                                   <th>First Name</th>
-                                   <th>Last Name</th>
-                                   <th>Username</th>
-                                 </tr> -->
-                                <tr align="center">
-                                    <td>1-1</td>
-                                    <td>1-2</td>
-                                    <th><var week get Dey()></th>
-                                    <td>1-3</td>
-                                    <td>1-4</td>
-                                    <td>1-5</td>
-                                    <td>1-6</td>
-                                    <td>1-7</td>
-                                    <td>1-8</td>
-                                    <td>1-9</td>
-                                </tr>
-                                <tr align="center">
-                                    <td>2-1</td>
-                                    <td>2-2</td>
-                                    <td>2-3</td>
-                                    <td>2-4</td>
-                                    <td>2-5</td>
-                                    <td>2-6</td>
-                                    <td>2-7</td>
-                                    <td>2-8</td>
-                                    <td>2-9</td>
-                                </tr>
-                                <tr align="center">
-                                    <td>3-1</td>
-                                    <td>3-2</td>
-                                    <td>3-3</td>
-                                    <td>3-4</td>
-                                    <td>3-5</td>
-                                    <td>3-6</td>
-                                    <td>3-7</td>
-                                    <td>3-8</td>
-                                    <td>3-9</td>
-                                </tr>
-                                <tr align="center">
-                                    <td>4-1</td>
-                                    <td>4-2</td>
-                                    <td>4-3</td>
-                                    <td>4-4</td>
-                                    <td>4-5</td>
-                                    <td>4-6</td>
-                                    <td>4-7</td>
-                                    <td>4-8</td>
-                                    <td>4-9</td>
-                                </tr>
-
-                                </thead>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!---->
-
-
-
         </div>
     </div>
-</div>
+
+@endsection
+
+@section('javascript')
+    <script type="text/javascript">
 
 
-</div>
-</div>
-</div>
+            $(document).ready(function () {
+                var editRow;
+                var editEE;
+                editEE = function () {
+                    var myDate = new Date();
+                    var myDay = myDate.getDate();
+
+                    for (var i = 3; i < 10; i++) {
+                        $('table#sift thead tr th:nth-child(' + i + ')').text(myDay);
+                        myDate.setDate(myDate.getDate() + 1);
+                        myDay = myDate.getDate();
+                    }
+                };
+
+                editRow = function () {
+                    var myDate = new Date();
+                    //var dayOfMonth = myDate.getDate();
+                    //var myY = myDate.getFullYear();
+                    //var myM=myDate.getMonth(); //月の値 取得
+                    var myD = myDate.getDay(); //日の曜日の値 取得
+                    var myDay = new Array("日", "月", "火", "水", "木", "金", "土"); //配列オブジェクトを生成
+                    //myDate = new Date( myY,myM-1,myD); //指定した時刻を表す日付オブジェクトを作成
+                    //var myWeek = myDate.getDay(); //曜日の
+                    for (var i = 3; i < 10; i++) {
+                        $('table#sift thead tr td:nth-child(' + i + ')').text(myDay[myD]);
+                        myDate.setDate(myDate.getDate() + 1);
+                        myD = myDate.getDay();
+                    }
+                };
+
+                $('#edit').on('click', function () {
+                    editRow();
+                });
+
+                $('#edit2').on('click', function () {
+                    editEE();
+                })
+            });
+
+
+    </script>
+
+@endsection
