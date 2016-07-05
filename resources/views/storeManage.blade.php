@@ -1,18 +1,17 @@
-@extends('layouts.noside_master')
+@extends('admin.layouts.master')
 
 @section('content')
     <div class="content-box-large">
         <div class="panel-heading">
-            <div class="panel-title"><h2>ポジション管理</h2></div>
+            <div class="panel-title"><h2>店舗一覧</h2></div>
         </div>
         <div class="panel-body">
             <table id="example" class="table table-striped table-bordered" border="0" cellpadding="0" cellspacing="0" width="100%">
                 <thead>
                 <tr>
-                    <th>ポジションID</th>
-                    <th>ポジション名</th>
-                    <th>業務開始時間</th>
-                    <th>業務終了時間</th>
+                    <th>店舗ID</th>
+                    <th>店舗名</th>
+                    <th>シフト担当者ID</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -34,9 +33,10 @@
             var addRow;
             var flag = true;
             var id = 0;
+            var sid= 0;
 
             addRow = function() {
-                $('#example tbody').append('<tr><td>' + (id += 1) +'</td><td>ポジション</td><td align="center">00:00</td><td align="center">00:00</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
+                $('#example tbody').append('<tr><td>' + (id += 1) +'</td><td>店舗名を入力</td><td align="center">' + (sid += 1) +'</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
             };
 
             $('#add').on('click', function() {

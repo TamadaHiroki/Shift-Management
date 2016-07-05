@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -170,4 +170,8 @@ Route::get('index', function () {
 
 Route::get('sift', function () {
     return view('sift');
+});
+
+Route::get('admin/storeManage', function () {
+    return view('storeManage');
 });
