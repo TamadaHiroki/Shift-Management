@@ -29,5 +29,13 @@ class UsersTableSeeder extends Seeder
             'position_id' => 1,
             'tell' => "0120-000-5678",
         ]);
+        DB::table('users')->insert([
+            'username' => 'test3',
+            'password' => Hash::make('ecc3'),    //パスワードはハッシュ値しないといけない
+            'email' => 'ecc@gmail.com',
+            'store_id' => 10,
+            'position_id' => 1,
+            'tell' => "0120-000-9101",
+        ]);
     }
 }
