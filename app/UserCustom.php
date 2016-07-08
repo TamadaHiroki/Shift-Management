@@ -30,6 +30,6 @@ class UserCustom extends Authenticatable
     }
 
     public function store(){
-        return $this->belongsTo('App\Store', 'store_id', 'id');
+        return $this->belongsTo('App\Stores', 'store_id', 'id');
     }
 }

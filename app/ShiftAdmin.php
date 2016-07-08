@@ -21,7 +21,7 @@ class ShiftAdmin extends Authenticatable
     ];
     
     public function store(){
-        return $this->hasOne('App\Store', 'shift_admin_id', 'id');
+        return $this->hasOne('App\Stores', 'shift_admin_id', 'id');
     }
     
 }
