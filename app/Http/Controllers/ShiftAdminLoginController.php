@@ -29,15 +29,20 @@ class ShiftAdminLoginController extends Controller{
     public function loginCheck(){
         //Guardを選択()
         $auth = Auth::guard('shiftAdmin');
-
+        
         if ($auth->attempt(['id' => Request::get('id'), 'password' => Request::get('password')])) {
             // 認証通過…
-            return redirect()->intended('/shift/management/view');
+            session()->put('shift_admin_id', Request::get('id'));
+            return redirect()->intended('/shift/top');
         }else{
             return redirect()->back()
                 ->withErrors("ID または Passwordが違います")
                 ->withInput();
         }
+    }
+
+    public function shiftAdminTop(){
+        return view('shiftAdminTop');
     }
 
 }

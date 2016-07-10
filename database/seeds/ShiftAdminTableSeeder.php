@@ -17,5 +17,9 @@ class ShiftAdminTableSeeder extends Seeder
             'password' => Hash::make('ecc'),    //パスワードはハッシュ値しないといけない
             'email' => 'ecc@gmail.com',
         ]);
+        DB::table('shift_admin')->insert([
+            'password' => Hash::make('ecc'),    //パスワードはハッシュ値しないといけない
+            'email' => 'ecc@gmail.com',
+        ]);
     }
 }

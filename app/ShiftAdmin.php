@@ -14,6 +14,14 @@ class ShiftAdmin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'password', 'email',
+        'id', 'password', 'email',
     ];
+    protected $hidden = [
+        'password',
+    ];
+    
+    public function store(){
+        return $this->hasOne('App\Stores', 'shift_admin_id', 'id');
+    }
+    
 }

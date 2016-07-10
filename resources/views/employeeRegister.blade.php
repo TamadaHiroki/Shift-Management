@@ -18,28 +18,28 @@
 			 	<div class="content-box-large">
 						<h1>従業員追加</h1>
 			  				<div class="panel-body">
-			  					<form action="">
+			  					<form method="POST" action="/shift/management/register">
+									{{csrf_field()}}
 									<fieldset>
 										<div class="form-group">
 											<div class="form-group">
 											<label>名前</label>
-											<input class="form-control" placeholder="氏名" type="text">
+											<input class="form-control" placeholder="氏名" type="text" name="username">
 										</div>
 										<div class="form-group">
 											<label>Eメール</label>
-											<input type="email" class="form-control" id="exampleInputEmail2" placeholder="email">
+											<input type="email" class="form-control" id="exampleInputEmail2" placeholder="email" name="email">
 										</div>
 										<div class="form-group">
 											<label>電話番号</label>
-											<input class="form-control" placeholder="電話番号" type="text">
+											<input class="form-control" placeholder="電話番号" type="text" name="tell">
 										</div>
 										<div class="form-group">
 											<label>ポジション</label>
-											<select>
-												<option value="a">レジ</option>
-												<option value="a">惣菜</option>
-												<option value="a">鮮魚</option>
-												<option value="a">商品補充</option>
+											<select name="position_id">
+												@foreach($positions as $position)
+														<option value="{{$position->id}}">{{$position->position}}</option>
+												@endforeach
 											</select>
 										</div>
 
