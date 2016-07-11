@@ -93,6 +93,8 @@ Route::group(['middleware' => 'authShift', 'prefix' => 'shift'], function () {  
         session()->forget('shift_admin_id');
         return redirect("shift/login");   //test用
     });
+    //シフト調整画面表示
+    Route::get('/adjustment', 'ShiftAdjustmentController@adjustment');
     /**
      * 従業員管理画面のグループ
      */
