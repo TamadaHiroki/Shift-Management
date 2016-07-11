@@ -4,8 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Shift extends Model
+class Position extends Model
 {
-    protected $table = 'shift'; //テーブル名指定
-    
+    protected $table = 'position'; //テーブル名指定
+
+    public function users(){
+        return $this->hasMany('App\User','position_id','id');
+    }
 }
