@@ -12,6 +12,7 @@
                     <th>店舗ID</th>
                     <th>店舗名</th>
                     <th>シフト担当者ID</th>
+                    <th>パスワード</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -36,12 +37,18 @@
             var sid= 0;
 
 
-            addRow = function() {
-                $('#example tbody').append('<tr><td>' + (id += 1) +'</td><td>ポジション</td><td align="center">00:00</td><td align="center">00:00</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
-            };
+//            addRow = function() {
+//                $('#example tbody').append('<tr><td>' + (id += 1) +'</td><td>ポジション</td><td align="center">00:00</td><td align="center">00:00</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
+//            };
 
             addRow = function() {
-                $('#example tbody').append('<tr><td>' + (id += 1) +'</td><td>店舗名を入力</td><td align="center">' + (sid += 1) +'</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
+                $('#example tbody').append('<tr>' +
+                        '<td>' + (id += 1) +'</td>' +
+                        '<td>店舗名を入力</td>' +
+                        '<td>' + (sid += 1) +'</td>' +
+                        '<td></td>' +
+                        '<td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>' +
+                        '</tr>');
             };
 
             $('#add').on('click', function() {
