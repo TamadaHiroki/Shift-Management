@@ -52,13 +52,13 @@
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th>月曜日</th>
-                                        <th>火曜日</th>
-                                        <th>水曜日</th>
-                                        <th>木曜日</th>
-                                        <th>金曜日</th>
-                                        <th>土曜日</th>
-                                        <th>日曜日</th>
+                                        <th>月曜日<input type="checkbox" name="" value=""></th>
+                                        <th>火曜日<input type="checkbox" name="" value=""></th>
+                                        <th>水曜日<input type="checkbox" name="" value=""></th>
+                                        <th>木曜日<input type="checkbox" name="" value=""></th>
+                                        <th>金曜日<input type="checkbox" name="" value=""></th>
+                                        <th>土曜日<input type="checkbox" name="" value=""></th>
+                                        <th>日曜日<input type="checkbox" name="" value=""></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -66,6 +66,7 @@
 
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -87,6 +88,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -96,6 +98,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -117,6 +120,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -126,6 +130,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -147,6 +152,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -156,6 +162,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -177,6 +184,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -186,6 +194,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -207,6 +216,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -216,6 +226,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -237,6 +248,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -246,6 +258,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -267,6 +280,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -281,6 +295,7 @@
                                     <tr>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -302,6 +317,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -311,6 +327,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -332,6 +349,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -341,6 +359,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -362,6 +381,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -371,6 +391,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -392,6 +413,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -401,6 +423,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -422,6 +445,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -431,6 +455,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -452,6 +477,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -461,6 +487,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -482,6 +509,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -503,6 +531,7 @@
                                     <tr style="background-color:#CCFFFF">
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -524,6 +553,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -533,6 +563,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -554,6 +585,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -563,6 +595,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -584,6 +617,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -593,6 +627,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -614,6 +649,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -623,6 +659,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -644,6 +681,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -653,6 +691,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -674,6 +713,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -683,6 +723,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -704,6 +745,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -718,6 +760,7 @@
                                     <tr>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -739,6 +782,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -748,6 +792,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -769,6 +814,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -778,6 +824,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -799,6 +846,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -808,6 +856,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -829,6 +878,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -838,6 +888,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -859,6 +910,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -868,6 +920,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -889,6 +942,7 @@
                                             </select>
                                             時
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -898,6 +952,7 @@
                                         </td>
                                         <td>
                                             <select>
+                                                <option value=""> </option>
                                                 <option value="6">6</option>
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
@@ -918,7 +973,8 @@
                                                 <option value="23">23</option>
                                             </select>
                                             時
-                                            <select>
+                                            <select
+                                                <option value=""> </option>>
                                                 <option value="0">0</option>
                                                 <option value="15">15</option>
                                                 <option value="30">30</option>
@@ -933,6 +989,7 @@
                                 </table>
                                 <div>※水色の欄＝始業可能時間　白色の欄＝最終就業時間</div>
                                 <div>※ひとつの曜日につき２つ時間帯を入力できます</div>
+                                <div>※チェックボックスが入れられている場所のみを変更します</div>
                                 <button class="btn btn-warning btn-lg">変更</button>
                         </fieldset>
                 </div>

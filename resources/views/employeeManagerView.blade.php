@@ -17,23 +17,23 @@
 
   			<div class="content-box-large">
   				<div class="panel-heading">
-					<h1>従業員一覧<h1>
+					<h1>従業員一覧</h1>
 					<br>
 					<br>
 					 <button class="btn btn-info btn-lg"><i class="glyphicon glyphicon-cloud-upload"></i> 一覧インポート</button>
 					<button class="btn btn-info btn-lg"><i class="glyphicon glyphicon-cloud-download"></i> 一覧ダウンロード</button>
 
 					<div class="panel-body">
-		  					<table class="table table-bordered">
+		  					<table class="table table-bordered" >
 						<thead>
 							<tr>
-								<th>削除選択</th>
+								<th width="70">削除選択</th>
 								<th>名前       </th>
 								<th>電話          </th>
 								<th>メール        </th>
 								<th>ポジション  </th>
-								<th>勤務可能時間</th>
-								<th>変更<th> 
+								<th width="100">勤務可能時間</th>
+								<th width="60">変更<th> 
 							 </tr>
 						</thead>
 						<tbody>
@@ -55,7 +55,7 @@
 					</div>
 					<div align="right">
 						<form method="GET" action="/shift/management/register">
-							<button class="btn btn-lg btn-danger"><i class="glyphicon glyphicon-pencil"></i> 従業員追加</button>
+							<button class="btn btn-lg btn-success"><i class="glyphicon glyphicon-pencil"></i> 従業員追加</button><wba>
 						</form>
 						<button type="button" class="btn btn-lg btn-danger" onclick="clickDelete()"><i class="glyphicon glyphicon-remove"></i> 従業員削除</button>
 						<script type="text/javascript">
