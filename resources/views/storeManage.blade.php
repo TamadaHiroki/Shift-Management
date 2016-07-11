@@ -35,6 +35,8 @@
             var flag = true;
             var id = 0;
             var sid= 0;
+            var passwd = randompasswd;
+
 
 
 //            addRow = function() {
@@ -46,7 +48,7 @@
                         '<td>' + (id += 1) +'</td>' +
                         '<td>店舗名を入力</td>' +
                         '<td>' + (sid += 1) +'</td>' +
-                        '<td></td>' +
+                        '<td>' + (passwd(6)) + '</td>' +
                         '<td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>' +
                         '</tr>');
             };
@@ -131,6 +133,20 @@
             //alert("「"+$(elm).val()+"」を保存しました"); //保存する処理をここに書く
         }
 
+        /**
+         * ランダム文字列生成 (英数字)
+         * len: 生成する文字数
+         */
+        function randompasswd(len) {
+            var l = 6; // 生成する文字列の長さ
+            var c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJLKMNOPQRSTUVWXYZ0123456789"; // 生成する文字列に含める文字セット
+            var cl = c.length;
+            var r = "";
+            for (var i = 0; i < l; i++) {
+                r += c[Math.floor(Math.random() * cl)];
+            }
+            return r;
+        }
     </script>
 @endsection
 
