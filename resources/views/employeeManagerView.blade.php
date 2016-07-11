@@ -58,28 +58,7 @@
 							<button class="btn btn-lg btn-success"><i class="glyphicon glyphicon-pencil"></i> 従業員追加</button><wba>
 						</form>
 						<button type="button" class="btn btn-lg btn-danger" onclick="clickDelete()"><i class="glyphicon glyphicon-remove"></i> 従業員削除</button>
-						<script type="text/javascript">
-							//従業員削除ボタンが押された時のイベント
-							function clickDelete(){
-								checkValue = [];	//ﾁｪｯｸされている項目値の配列
-								//class .panel-body のチェックボックスの値をみて trueなら以下の処理実行
-								$('.panel-body :checkbox:checked').map(function() {
-									checkValue.push($(this).val());	//value値を配列の末尾に追加
-								});
-								check = window.confirm('選択された従業員を削除しますか？');	//確認のダイアログ
 
-								if(check == true){
-									//post送信でリクエストを送信
-									$.post("/shift/management/delete",
-											{'select': [checkValue]},		//配列にキー名をつけて送信
-											function(){
-												//リクエストが成功した際に実行する関数
-												location.reload();		//ページを更新
-											}
-									);
-								}
-							}
-						</script>
 
 					</div>
 				</div>
@@ -89,5 +68,29 @@
 
 @section('footer')
     @@parent
+@endsection
+@section('javascript')
+	<script type="text/javascript">
+		//従業員削除ボタンが押された時のイベント
+		function clickDelete(){
+			checkValue = [];	//ﾁｪｯｸされている項目値の配列
+			//class .panel-body のチェックボックスの値をみて trueなら以下の処理実行
+			$('.panel-body :checkbox:checked').map(function() {
+				checkValue.push($(this).val());	//value値を配列の末尾に追加
+			});
+			check = window.confirm('選択された従業員を削除しますか？');	//確認のダイアログ
+
+			if(check == true){
+				//post送信でリクエストを送信
+				$.post("/shift/management/delete",
+						{'select': [checkValue]},		//配列にキー名をつけて送信
+						function(){
+							//リクエストが成功した際に実行する関数
+							location.reload();		//ページを更新
+						}
+				);
+			}
+		}
+	</script>
 @endsection
 

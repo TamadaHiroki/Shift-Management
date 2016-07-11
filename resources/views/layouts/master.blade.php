@@ -40,5 +40,6 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <script src="/js/custom.js"></script>
+@yield('javascript')
 </body>
 </html>
