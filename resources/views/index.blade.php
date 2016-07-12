@@ -13,6 +13,7 @@
                     <th>ポジション名</th>
                     <th>業務開始時間</th>
                     <th>業務終了時間</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,7 +37,7 @@
             var id = 0;
 
             addRow = function() {
-                $('#example tbody').append('<tr><td>' + (id += 1) +'</td><td>ポジション</td><td align="center">00:00</td><td align="center">00:00</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
+                $('#example tbody').append('<tr><td class="editable">' + (id += 1) +'</td><td class="editable">ポジション</td><td align="center" class="editable">00:00</td><td align="center" class="editable">00:00</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
             };
 
             $('#add').on('click', function() {
@@ -45,11 +46,11 @@
 
             $('#edit').on('click',function () {
                 if(flag){
-                    $("#example > tbody").on('click','tr > td',edit_toggle());
+                    $("#example > tbody").on('click','tr > td.editable',edit_toggle());
                     $("#edit_text").text(" 確定 ");
                     flag=false
                 }else{
-                    $("#example > tbody").off('click','tr > td');
+                    $("#example > tbody").off('click','tr > td.editable');
                     $("#edit_text").text(" 編集 ");
                     flag=true
                 }
@@ -100,7 +101,24 @@
             var edit_flag=false;
             return function() {
                 if (edit_flag) return;
+                var table = document.getElementById('example');
+                var cols = table.rows[0].cells.length;
+
+//                if(table.rows[0].cells.length) return;
+
+//                // trをループ。rowsコレクションで,行位置取得。
+//                for (var i=0; i<table.rows.length; i++) {
+//                    // tr内のtdをループ。cellsコレクションで行内セル位置取得。
+//                    for (var j = 0; j < table.rows[i].cells.length; j++) {
+//                        var Cells = table.rows[i].cells[j];
+//                        if(Cells == 4){
+//                            return;
+//                        }
+//                    }
+//                }
+                //if(table.rows.cells[4]) return;
                 var $input = $("<input>").attr("type", "text").val($(this).text());
+                //if($(this).length == table.rows[0].cells.length) return;
                 $(this).html($input);
 
                 $("input", this).focus().blur(function () {

@@ -8,9 +8,9 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class Shift extends Authenticatable
+class Shift extends Model
 {
     protected $table = 'shift'; //テーブル名指定
 

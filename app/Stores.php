@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Store extends Model
+class Stores extends Model
 {
-    protected $table = 'store'; //テーブル名指定
+    protected $table = 'stores'; //テーブル名指定
 
     /**
      * The attributes that are mass assignable.
