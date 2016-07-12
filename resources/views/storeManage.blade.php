@@ -20,7 +20,7 @@
                 </tbody>
             </table>
             <center>
-                <button type="button" class="btn btn-primary" id="add"><i class="glyphicon glyphicon-ok-sign"></i> 店舗追加 </button>
+                <button type="button" class="btn btn-primary" id="add" ><i class="glyphicon glyphicon-ok-sign"></i> 店舗追加 </button>
                 <button type="button" class="btn btn-info" id="edit"><i class="glyphicon glyphicon-pencil"></i><span id="edit_text"> 編集 </span></button>
                 <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-refresh"></i> 戻る </button>
             </center>
@@ -37,7 +37,8 @@
             var sid= 0;
             var passwd = randompasswd;
 
-
+            //
+            @foreach($stores as $store)
 
 //            addRow = function() {
 //                $('#StoreList tbody').append('<tr><td>' + (id += 1) +'</td><td>ポジション</td><td align="center">00:00</td><td align="center">00:00</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
@@ -57,7 +58,7 @@
                 addRow();
                 //新規に作成された店舗をデータベースに追加します
                 $.post("/admin/main/add",
-                        { "pass":passwd },
+                        { "pass":passwd ,"sid":sid,"id":id},
                         function(){
                             //リクエストが成功した際に実行する関数
                             alert("追加しました");

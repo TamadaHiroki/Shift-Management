@@ -8,8 +8,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Stores;
 use App\Task;
 use Auth;
+use App\ShiftAdmin;
 use App\UserCustom;
 use Session;
 use Validator;
@@ -18,11 +20,18 @@ use App\Http\Requests;
 
 class StoreListController extends Controller{
     public function StoreList(){
+        $storename = Stores::all();
+        //return $storename;
+        return view('storeManage',[ 'stores' => $storename]);
         
     }
     public function StoreListAdd(){
         $pass = Request::input('pass');
+        $store = array('store' => '店舗名を入力','shift_admin_id' =>Request::input('sid'));
+        Stores::create($store);
+        $shift = array('password' => bcrypt($pass));
+        ShiftAdmin::create($shift);
 
-        
+
     }
 }
