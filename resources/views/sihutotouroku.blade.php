@@ -26,17 +26,19 @@
 										<table class="table table-bordered">
 											<thead>
 												<tr>
-													<th width="90">氏名</th>
-													<th>月曜日</th>
-													<th>火曜日</th>
-													<th>水曜日</th>
-													<th>木曜日</th>
-													<th>金曜日</th>
-													<th>土曜日</th>
-													<th>日曜日</th> 
+													<th width="64">ﾎﾟｼﾞｼｮﾝ</th>
+													<th width="100">氏名</th>
+													<th>月曜日<input type="text" name="" value="00/00" size="5" maxlength="8" readonly="readonly" ></th>
+													<th>火曜日<input type="text" name="" value="00/00" size="5" maxlength="8" readonly="readonly" ></th>
+													<th>水曜日<input type="text" name="" value="00/00" size="5" maxlength="8" readonly="readonly" ></th>
+													<th>木曜日<input type="text" name="" value="00/00" size="5" maxlength="8" readonly="readonly" ></th>
+													<th>金曜日<input type="text" name="" value="00/00" size="5" maxlength="8" readonly="readonly" ></th>
+													<th>土曜日<input type="text" name="" value="00/00" size="5" maxlength="8" readonly="readonly" ></th>
+													<th>日曜日<input type="text" name="" value="00/00" size="5" maxlength="8" readonly="readonly" ></th> 
 												 </tr>
 											</thead>
 											<tbody><tr style="background-color:#CCFFFF">
+													<th> レジ　</th>
 													<th> 田中太郎　</th>
 													<td ><select>
 															<option value=" ">  </option>
