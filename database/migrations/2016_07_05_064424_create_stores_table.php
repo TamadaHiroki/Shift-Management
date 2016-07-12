@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShiftAdminTable extends Migration
+class CreateStoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,10 @@ class CreateShiftAdminTable extends Migration
      */
     public function up()
     {
-        Schema::create('shift_admin', function (Blueprint $table) {
+        Schema::create('stores', function (Blueprint $table) {
             $table->increments('id');
-            //$table->string('username');
-            $table->string('password');
-            $table->string('email');
-            //$table->string('remember_token');
-            $table->rememberToken();
+            $table->string('store');
+            $table->integer('shift_admin_id');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateShiftAdminTable extends Migration
      */
     public function down()
     {
-        Schema::drop('shift_admin');
+        Schema::drop('stores');
     }
 }
