@@ -15,6 +15,16 @@
                     <th>パスワード</th>
                     <th></th>
                 </tr>
+
+                @foreach($stores as $store)
+                    <tr>
+                        <td>{{$store->id}}</td>
+                        <td class="editable">{{$store->store}}</td>
+                        <td class="editable">{{$store->shift_admin_id}}</td>
+                        <td class="editable">{{$store->password}}</td>
+                        <td ><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>
+                    </tr>
+                @endforeach
                 </thead>
                 <tbody>
                 </tbody>
@@ -28,21 +38,17 @@
     </div>
 @endsection
 
+
+
 @section('javascript')
     <script type="text/javascript">
+
         $(document).ready(function() {
             var addRow;
             var flag = true;
-            var id = 0;
-            var sid= 0;
+            var id = Number("<?php echo json_encode($store->id); ?>");
+            var sid= Number("<?php echo json_encode($store->shift_admin_id); ?>");
             var passwd = randompasswd;
-
-            //
-            @foreach($stores as $store)
-
-//            addRow = function() {
-//                $('#StoreList tbody').append('<tr><td>' + (id += 1) +'</td><td>ポジション</td><td align="center">00:00</td><td align="center">00:00</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
-//            };
 
             addRow = function() {
                 $('#StoreList tbody').append('<tr>' +
@@ -61,7 +67,7 @@
                         { "pass":passwd ,"sid":sid,"id":id},
                         function(){
                             //リクエストが成功した際に実行する関数
-                            alert("追加しました");
+                            //alert("追加しました");
                         }
                 );
 
