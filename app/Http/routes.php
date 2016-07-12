@@ -160,9 +160,16 @@ Route::get('main', function () {
     return view('main');
 });
 
+
+// あとで店舗管理者に入れる
 Route::get('admin/main', function () {
     return view('storeManage');
 });
+
+//同上
+//店舗リスト
+Route::post('admin/main', 'StoreListController@StoreList');
+Route::post('admin/main/add', 'StoreListController@StoreListAdd');
 
 Route::get('index', function () {
     return view('index');

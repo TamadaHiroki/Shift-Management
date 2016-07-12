@@ -6,7 +6,7 @@
             <div class="panel-title"><h2>店舗一覧</h2></div>
         </div>
         <div class="panel-body">
-            <table id="example" class="table table-striped table-bordered" border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table id="StoreList" class="table table-striped table-bordered" border="0" cellpadding="0" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                     <th>店舗ID</th>
@@ -20,7 +20,7 @@
                 </tbody>
             </table>
             <center>
-                <button type="button" class="btn btn-primary" id="add"><i class="glyphicon glyphicon-ok-sign"></i> 登録 </button>
+                <button type="button" class="btn btn-primary" id="add"><i class="glyphicon glyphicon-ok-sign"></i> 店舗追加 </button>
                 <button type="button" class="btn btn-info" id="edit"><i class="glyphicon glyphicon-pencil"></i><span id="edit_text"> 編集 </span></button>
                 <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-refresh"></i> 戻る </button>
             </center>
@@ -40,37 +40,62 @@
 
 
 //            addRow = function() {
-//                $('#example tbody').append('<tr><td>' + (id += 1) +'</td><td>ポジション</td><td align="center">00:00</td><td align="center">00:00</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
+//                $('#StoreList tbody').append('<tr><td>' + (id += 1) +'</td><td>ポジション</td><td align="center">00:00</td><td align="center">00:00</td><td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td></tr>');
 //            };
 
             addRow = function() {
-                $('#example tbody').append('<tr>' +
+                $('#StoreList tbody').append('<tr>' +
                         '<td>' + (id += 1) +'</td>' +
-                        '<td>店舗名を入力</td>' +
-                        '<td>' + (sid += 1) +'</td>' +
-                        '<td>' + (passwd(6)) + '</td>' +
+                        '<td class="editable">店舗名を入力</td>' +
+                        '<td class="editable">' + (sid += 1) +'</td>' +
+                        '<td class="editable">' + (passwd(6)) + '</td>' +
                         '<td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>' +
                         '</tr>');
             };
 
             $('#add').on('click', function() {
                 addRow();
+                //新規に作成された店舗をデータベースに追加します
+                $.post("/admin/main/add",
+                        { "pass":passwd },
+                        function(){
+                            //リクエストが成功した際に実行する関数
+                            alert("追加しました");
+                        }
+                );
+
             });
 
             $('#edit').on('click',function () {
                 if(flag){
-                    $("#example > tbody").on('click','tr > td',edit_toggle());
+                    $("#StoreList > tbody").on('click','tr > td.editable',edit_toggle());
                     $("#edit_text").text(" 確定 ");
                     flag=false
+
+
                 }else{
-                    $("#example > tbody").off('click','tr > td');
+                    $("#StoreList > tbody").off('click','tr > td.editable');
                     $("#edit_text").text(" 編集 ");
                     flag=true
+
+
+                    //送信内容生成
+
+
+                    //送信処理
+//                    $.post("/admin/main",
+//                            { name: "John", time: "2pm" },
+//                            function(data){
+//                                //リクエストが成功した際に実行する関数
+//                                alert("Data Loaded: " + data);
+//                            }
+//                    );
+
                 }
             });
 
 //            $("#delete").on('click',function(){
-//                $("#example > tbody").on('click','td',row_delete());
+//                $("#StoreList > tbody").on('click','td',row_delete());
 //            });
 
             $(document).on({
@@ -96,7 +121,7 @@
             // trのインデックスを取得して行を削除する
             tr.parentNode.deleteRow(tr.sectionRowIndex);
 
-//            var table = document.getElementById("example");
+//            var table = document.getElementById("StoreList");
 //            var rowcount = table.rows.length;
 //            var rows = 0;
 //            if(rowcount == 2){
@@ -115,7 +140,7 @@
             return function() {
                 if (edit_flag) return;
 
-                //if($("#example").Rows.cells[4]) return;
+                //if($("#StoreList").Rows.cells[4]) return;
 
                 var $input = $("<input>").attr("type", "text").val($(this).text());
                 $(this).html($input);
