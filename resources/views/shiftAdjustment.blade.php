@@ -96,6 +96,11 @@
 @section('javascript')
 	<script type="text/javascript">
 		$(function () {
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
 
 			//testデータを連想配列で name1は人名 月～日は曜日 start～endは入力値
 			var test = {
