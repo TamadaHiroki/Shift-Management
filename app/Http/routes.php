@@ -172,6 +172,7 @@ Route::get('admin/main', 'StoreListController@StoreList');
 //店舗リスト
 Route::post('admin/main', 'StoreListController@StoreList');
 Route::post('admin/main/add', 'StoreListController@StoreListAdd');
+Route::post('admin/main/delete','StoreListController@StoreDelete');
 
 Route::get('index', function () {
     return view('index');

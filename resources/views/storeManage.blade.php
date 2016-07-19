@@ -12,7 +12,7 @@
                     <th>店舗ID</th>
                     <th>店舗名</th>
                     <th>シフト担当者ID</th>
-                    <th>パスワード</th>
+                    {{--<th>パスワード</th>--}}
                     <th></th>
                 </tr>
 
@@ -21,7 +21,7 @@
                         <td>{{$store->id}}</td>
                         <td class="editable">{{$store->store}}</td>
                         <td class="editable">{{$store->shift_admin_id}}</td>
-                        <td class="editable">{{$store->password}}</td>
+                        {{--<td class="editable">{{$store->password}}</td>--}}
                         <td ><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>
                     </tr>
                 @endforeach
@@ -52,11 +52,11 @@
 
             addRow = function() {
                 $('#StoreList tbody').append('<tr>' +
-                        '<td>' + (id += 1) +'</td>' +
+                        '<td class="storeid">' + (id += 1) +'</td>' +
                         '<td class="editable">店舗名を入力</td>' +
                         '<td class="editable">' + (sid += 1) +'</td>' +
-                        '<td class="editable">' + (passwd(6)) + '</td>' +
-                        '<td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>' +
+//                        '<td class="editable">' + (passwd(6)) + '</td>' +
+                        '<td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)" value="test"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>' +
                         '</tr>');
             };
 
@@ -72,6 +72,8 @@
                 );
 
             });
+
+
 
             $('#edit').on('click',function () {
                 if(flag){
@@ -101,10 +103,6 @@
                 }
             });
 
-//            $("#delete").on('click',function(){
-//                $("#StoreList > tbody").on('click','td',row_delete());
-//            });
-
             $(document).on({
                 'mouseenter':function(){
                     var idx = $(this).index() + 1;
@@ -124,9 +122,21 @@
         });
 
         function row_delete(obj){
+            //行削除と同じタイミングでデータベースから行ごと削除します。
+            var id = obj.parent().children('.storeid');
+            alert(id);
+//            //送信処理
+//            $.post("/admin/main",
+//                    { 'id' : },
+//                    function(data){
+//                                //リクエストが成功した際に実行する関数
+//                                alert("Data Loaded: " + data);
+
             tr = obj.parentNode.parentNode;
             // trのインデックスを取得して行を削除する
             tr.parentNode.deleteRow(tr.sectionRowIndex);
+
+
 
 //            var table = document.getElementById("StoreList");
 //            var rowcount = table.rows.length;

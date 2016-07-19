@@ -32,6 +32,10 @@ class StoreListController extends Controller{
         $shift = array('password' => bcrypt($pass));
         ShiftAdmin::create($shift);
 
-
+    }
+    public function StoreDelete(){
+        $id = Request::input('id');
+        $delete = ShiftAdmin::find($id);
+        $delete -> delete();
     }
 }
