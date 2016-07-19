@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminTableSeeder::class);
         $this->call(PositionTableSeeder::class);
         $this->call(StoresTableSeeder::class);
-
+        $this->call(WorkTimeTableSeeder::class);
 
     }
 }

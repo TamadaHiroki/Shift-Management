@@ -15,16 +15,15 @@
 @section('content')
 			    <div class="col-md-10">
 			        <div class="row">
-			 	<div class="content-box-large">
+			 			<div class="content-box-large">
 						<h1>従業員追加</h1>
 			  				<div class="panel-body">
 			  					<form method="POST" action="/shift/management/register">
 									{{csrf_field()}}
 									<fieldset>
 										<div class="form-group">
-											<div class="form-group">
-											<label>名前</label>
-											<input class="form-control" placeholder="氏名" type="text" name="username">
+												<label>名前</label>
+												<input class="form-control" placeholder="氏名" type="text" name="username">
 										</div>
 										<div class="form-group">
 											<label>Eメール</label>
@@ -52,884 +51,102 @@
 													<th>木曜日</th>
 													<th>金曜日</th>
 													<th>土曜日</th>
-													<th>日曜日<th> 
+													<th>日曜日</th>
 												 </tr>
 											</thead>
 											<tbody>
-												<tr style="background-color:#CCFFFF">
-												        <td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
+											<tr style="background-color:#CCFFFF">
+												@for($i = 1; $i <= 7; $i++)
+													<td class="{{$i}}">
+														<select name="select_1[]">
+															<option value="">  </option>
+															@for($j = 6; $j <= 23; $j++)
+																<option value="{{$j}}">{{$j}}</option>
+															@endfor
+														</select> 時
+														<select name="select_2[]">
+															<option value="">  </option>
+															@for($j = 0; $j <= 45; $j = $j + 15)
+																<option value="{{$j}}">{{$j}}</option>
+															@endfor
+														</select> 分から<br>
 													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
+												@endfor
+											</tr>
+											<tr>
+												@for($i = 8; $i <= 14; $i++)
+													<td class="{{$i}}">
+														<select name="select_3[]">
+															<option value="">  </option>
+															@for($j = 6; $j <= 23; $j++)
+																<option value="{{$j}}">{{$j}}</option>
+															@endfor
+														</select> 時
+														<select name="select_4[]">
+															<option value="">  </option>
+															@for($j = 0; $j <= 45; $j = $j + 15)
+																<option value="{{$j}}">{{$j}}</option>
+															@endfor
+														</select> 分まで
 													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
-													</td>
-													
-
-												</tr>
-
-												<tr>
-												       <td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-												</tr>
-												<tr style="background-color:#dcdcdc">
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-												</tr>
-
-												<tr style="background-color:#CCFFFF">
-												        <td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分から
-													</td>
-													
-
-												</tr>
-
-												<tr>
-												       <td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-													<td>
-														<select>
-															<option value="6">6</option>
-															<option value="7">7</option>
-															<option value="8">8</option>
-															<option value="9">9</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-														</select>
-														時
-														<select>
-															<option value="0">0</option>
-															<option value="15">15</option>
-															<option value="30">30</option>
-															<option value="45">45</option>
-														</select>
-														分まで
-													</td>
-													
-												</tr>
+												@endfor
+											</tr>
+											{{--<tr style="background-color:#dcdcdc">--}}
+												{{--<td></td>--}}
+												{{--<td></td>--}}
+												{{--<td></td>--}}
+												{{--<td></td>--}}
+												{{--<td></td>--}}
+												{{--<td></td>--}}
+												{{--<td></td>--}}
+											{{--</tr>--}}
+											{{--<tr style="background-color:#CCFFFF">--}}
+												{{--@for($i = 15; $i <= 21; $i++)--}}
+													{{--<td class="{{$i}}">--}}
+														{{--<select>--}}
+															{{--<option value="">  </option>--}}
+															{{--@for($j = 6; $j <= 23; $j++)--}}
+																{{--<option value="{{$j}}">{{$j}}</option>--}}
+															{{--@endfor--}}
+														{{--</select>時--}}
+														{{--<select>--}}
+															{{--<option value="">  </option>--}}
+															{{--@for($j = 0; $j <= 45; $j = $j + 15)--}}
+																{{--<option value="{{$j}}">{{$j}}</option>--}}
+															{{--@endfor--}}
+														{{--</select>分から<br>--}}
+													{{--</td>--}}
+												{{--@endfor--}}
+											{{--</tr>--}}
+											{{--<tr>--}}
+												{{--@for($i = 22; $i <= 28; $i++)--}}
+													{{--<td class="{{$i}}">--}}
+														{{--<select>--}}
+															{{--<option value="">  </option>--}}
+															{{--@for($j = 6; $j <= 23; $j++)--}}
+																{{--<option value="{{$j}}">{{$j}}</option>--}}
+															{{--@endfor--}}
+														{{--</select>時--}}
+														{{--<select>--}}
+															{{--<option value="">  </option>--}}
+															{{--@for($j = 0; $j <= 45; $j = $j + 15)--}}
+																{{--<option value="{{$j}}">{{$j}}</option>--}}
+															{{--@endfor--}}
+														{{--</select>分まで--}}
+													{{--</td>--}}
+												{{--@endfor--}}
+											{{--</tr>--}}
 											</tbody>
 										</table>
 										<div>※水色の欄＝始業可能時間　白色の欄＝最終就業時間</div>
 										<div>※ひとつの曜日につき２つ時間帯を入力できます</div>
-										 <button class="btn btn-success btn-lg">追加</button>
+											<button class="btn btn-success btn-lg">追加</button>
 									</fieldset>
-								</div>
-							        </div>
-							    </div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
 @endsection
 
 @section('footer')

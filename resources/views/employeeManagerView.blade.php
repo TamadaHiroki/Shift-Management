@@ -17,7 +17,7 @@
 
   			<div class="content-box-large">
   				<div class="panel-heading">
-					<h1>従業員一覧<h1>
+					<h1>従業員一覧</h1>
 					<br>
 					<br>
 					 <button class="btn btn-info btn-lg"><i class="glyphicon glyphicon-cloud-upload"></i> 一覧インポート</button>
@@ -33,7 +33,7 @@
 								<th>メール        </th>
 								<th>ポジション  </th>
 								<th>勤務可能時間</th>
-								<th>変更<th> 
+								<th>変更</th>
 							 </tr>
 						</thead>
 						<tbody>
@@ -80,7 +80,6 @@
 								}
 							}
 						</script>
-
 					</div>
 				</div>
   			</div>

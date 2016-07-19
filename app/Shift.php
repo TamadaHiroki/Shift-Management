@@ -20,7 +20,7 @@ class Shift extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'user_id', 'start_time', 'end_time'
+        'id', 'user_id', 'start_time', 'end_time', 'week_day'
     ];
 
     public function user(){

@@ -13,6 +13,7 @@
 
 use App\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
     /**
      * Userログイン前
@@ -95,6 +96,7 @@ Route::group(['middleware' => 'authShift', 'prefix' => 'shift'], function () {  
     });
     //シフト調整画面表示
     Route::get('/adjustment', 'ShiftAdjustmentController@adjustment');
+    Route::post('/adjustment', 'ShiftAdjustmentController@adjustment');
     /**
      * 従業員管理画面のグループ
      */
@@ -167,6 +169,18 @@ Route::get('admin/main', function () {
 
 Route::get('index', function () {
     return view('index');
+});
+
+Route::get('top', function () {
+    if (Auth::guard('shiftAdmin')->check()){
+        return redirect('/shift/top');
+    }else if(Auth::guard('user')->check()){
+        return redirect('/user/top');
+    }else if(Auth::guard('admin')->check()){
+        return redirect('/admin/top');
+    }else{
+        return redirect('/');
+    }
 });
 
 /**
