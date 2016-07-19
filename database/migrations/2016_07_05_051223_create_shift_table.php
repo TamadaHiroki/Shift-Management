@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShifTable extends Migration
+class CreateShiftTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,8 @@ class CreateShifTable extends Migration
         Schema::create('shift', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->time('start_time');
-            $table->time('end_time');
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->timestamps();
         });
     }

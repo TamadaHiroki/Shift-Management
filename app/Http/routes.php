@@ -49,6 +49,8 @@ use Illuminate\Http\Request;
             // authミドルウェアが使用される
             return "OK!";   //test用
         });
+
+        
         Route::get('/logout', function ()    {
             // authミドルウェアが使用される
             Auth::guard('user')->logout();
@@ -168,9 +170,7 @@ Route::get('index', function () {
     return view('index');
 });
 
-Route::get('sift', function () {
-    return view('sift');
-});
+Route::get('sift', 'ShiftController@index');
 
 Route::get('admin/storeManage', function () {
     return view('storeManage');

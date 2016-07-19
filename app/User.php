@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Shift;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -23,4 +25,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function shifts(){
+        return $this->hasMany('App\Shift','user_id','id');
+    }
+
+    public function getShift($day,$user_id){
+        $day = Carbon::parse($day);
+        return Shift::where('start','=>',$day->format('Y-m-d H:i:s'))->where('end','<',$day->addDays(1)->format('Y-m-d H:i:s'))
+            ->where('user_id',$user_id)->first();
+    }
 }

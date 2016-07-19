@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(ShiftAdminTableSeeder::class);
         $this->call(AdminTableSeeder::class);
-
+        $this->call(PositonTableSeeder::class);
+        $this->call(ShitfTableSeeder::class);
 
     }
 }

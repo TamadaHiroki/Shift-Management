@@ -9,6 +9,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Shift extends Model
 {
@@ -20,10 +21,22 @@ class Shift extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'user_id', 'start_time', 'end_time'
+        'id', 'user_id', 'start', 'end'
     ];
 
     public function user(){
         return $this->belongsTo('App\UserCustom', 'user_id', 'id');
+    }
+    
+    public function getStartTime(){
+        date_default_timezone_set('Asia/Tokyo');
+        $carbon = Carbon::parse($this->start);
+        $day = date('m/d');
+        return $carbon;//$carbon->format('h:i');
+    }
+    
+    public function getEndTime(){
+        $carbon = Carbon::parse($this->end);
+        return $carbon->format('h:i');
     }
 }
