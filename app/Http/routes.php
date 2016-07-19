@@ -13,6 +13,7 @@
 
 use App\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
     /**
      * Userログイン前
@@ -53,6 +54,7 @@ use Illuminate\Http\Request;
         
         Route::get('/logout', function ()    {
             // authミドルウェアが使用される
+	    //ログアウトはこっちのほうがいいかも (Auth::guard($this->getGuard())->logout();)
             Auth::guard('user')->logout();
             return redirect("user/login");   //test用
         });
@@ -86,43 +88,44 @@ Route::group(['middleware' => 'guestShift','prefix' => 'shift'], function () {
  * Shift管理者ログイン後の画面グループ
  */
 Route::group(['middleware' => 'authShift', 'prefix' => 'shift'], function () {    //prefixは付けると /userとなる
-    Route::get('/top', function ()    {
-        // authミドルウェアが使用される
-        return "OK!";   //test用
-        //return redirect("shift/management/view");
-        //return view('employeeManagement');
-    });
+    Route::get('/top',  'ShiftAdminLoginController@shiftAdminTop');
+    
     Route::get('/logout', function ()    {
         // authミドルウェアが使用される
         Auth::guard('shiftAdmin')->logout();
+        session()->forget('shift_admin_id');
         return redirect("shift/login");   //test用
     });
+    //シフト調整画面表示
+    Route::get('/adjustment', 'ShiftAdjustmentController@adjustment');
+    Route::post('/adjustment', 'ShiftAdjustmentController@adjustment');
     /**
      * 従業員管理画面のグループ
      */
     Route::group(['prefix' => 'management'], function(){
 
         //従業員一覧表示
-        Route::get('/view', 'ShiftManagementController@manageView');
+        Route::get('/view', 'UserManagementController@manageView');
 //        Route::get('/view', function(){
 //            $users = UserCustom::all();     //全モデルを取得する
 //            return $users;
 //        });
         //従業員の登録
-        Route::get('/register', 'ShiftManagementController@manageRegister');
-        Route::post('/register', 'ShiftManagementController@manageRegister');
+        Route::get('/register', 'UserManagementController@manageRegister');
+        Route::post('/register', 'UserManagementController@manageRegister');
         //従業員の更新
-        Route::get('/update', 'ShiftManagementController@manageUpdate');
-        Route::post('/update', 'ShiftManagementController@manageUpdate');
+        Route::get('/update/{id}', 'UserManagementController@manageUpdate');
+        Route::post('/update/{id}', 'UserManagementController@manageUpdate');
         //従業員の削除
-        Route::get('/delete', 'ShiftManagementController@manageDelete');
-        Route::post('/delete', 'ShiftManagementController@manageDelete');
+        Route::get('/delete', 'UserManagementController@manageDelete');
+        Route::post('/delete', 'UserManagementController@manageDelete');
     });
     
 });
 /**
  * 店舗管理者ログイン前
  */
+//'middleware' => 'guestAdmin:admin'のほうがいいかも ミドルウェア名:gaurd名 ($guardに格納される) guestAdmin
 Route::group(['middleware' => 'guestAdmin','prefix' => 'admin'], function () {
     /**
      * 店舗管理者ログインメイン画面
@@ -182,9 +185,6 @@ Route::get('passchange', function () {
     return view('passchange');
 });
 
-
-
-
 Route::get('admin/main', function () {
     return view('admin.main');
 });
@@ -198,3 +198,23 @@ Route::get('sift', 'ShiftController@index');
 Route::get('admin/storeManage', function () {
     return view('storeManage');
 });
+
+Route::get('top', function () {
+    if (Auth::guard('shiftAdmin')->check()){
+        return redirect('/shift/top');
+    }else if(Auth::guard('user')->check()){
+        return redirect('/user/top');
+    }else if(Auth::guard('admin')->check()){
+        return redirect('/admin/top');
+    }else{
+        return redirect('/');
+    }
+});
+
+/**
+ * テスト用 ルート
+ */
+Route::get('/', function () {
+    return view('welcome');  //UserCustom::find(2)->position->position;
+});
+

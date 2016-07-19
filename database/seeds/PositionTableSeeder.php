@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PositonTableSeeder extends Seeder
+class PositionTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,15 +14,16 @@ class PositonTableSeeder extends Seeder
         DB::table('position')->truncate();
 
         DB::table('position')->insert([
-            'position' => '軍艦',
-            'start_time' => '07:00:00',
-            'end_time' => '22:00:00'
+            'position' => 'レジ',
         ]);
-
         DB::table('position')->insert([
-            'position' => '刺身',
-            'start_time' => '07:00:00',
-            'end_time' => '22:00:00'
+            'position' => '惣菜',
+        ]);
+        DB::table('position')->insert([
+            'position' => '鮮魚',
+        ]);
+        DB::table('position')->insert([
+            'position' => '商品補充',
         ]);
     }
 }
