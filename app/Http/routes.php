@@ -162,6 +162,29 @@ Route::get('main', function () {
     return view('main');
 });
 
+
+
+ /**
+     * シフト担当者メイン画面
+     */
+Route::get('shiftmain', function () {
+    return view('shiftmain');
+});
+
+
+
+/**
+*パスワード変更画面	
+*
+*/
+
+Route::get('passchange', function () {
+    return view('passchange');
+});
+
+
+
+
 Route::get('admin/main', function () {
     return view('admin.main');
 });
