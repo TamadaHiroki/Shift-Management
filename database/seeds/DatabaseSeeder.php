@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ShiftAdminTableSeeder::class);
         $this->call(AdminTableSeeder::class);
         $this->call(PositionTableSeeder::class);
-        $this->call(ShitfTableSeeder::class);
+        $this->call(ShiftTableSeeder::class);
         $this->call(StoresTableSeeder::class);
         $this->call(WorkTimeTableSeeder::class);
 

@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Shift;
+use App\Shift;
 use Carbon\Carbon;
 
 class UserCustom extends Authenticatable
