@@ -173,6 +173,8 @@ Route::get('admin/main', 'StoreListController@StoreList');
 Route::post('admin/main', 'StoreListController@StoreList');
 Route::post('admin/main/add', 'StoreListController@StoreListAdd');
 Route::post('admin/main/delete','StoreListController@StoreDelete');
+Route::post('admin/main/update','StoreListController@StoreUpdate');
+
 
 Route::get('index', function () {
     return view('index');

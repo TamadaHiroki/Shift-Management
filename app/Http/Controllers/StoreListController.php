@@ -35,7 +35,16 @@ class StoreListController extends Controller{
     }
     public function StoreDelete(){
         $id = Request::input('id');
-        $delete = ShiftAdmin::find($id);
+        $delete = Stores::find($id);
         $delete -> delete();
+    }
+    public function StoreUpdate(){
+        $id = Request::input('id');
+        $store = Request::input('store');
+        $sid = Request::input('sid');
+
+            ->update([$id,$store,$sid]);
+
+
     }
 }

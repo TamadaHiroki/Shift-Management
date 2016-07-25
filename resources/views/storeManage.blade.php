@@ -15,18 +15,17 @@
                     {{--<th>パスワード</th>--}}
                     <th></th>
                 </tr>
-
+                </thead>
+                <tbody id="t">
                 @foreach($stores as $store)
-                    <tr>
-                        <td>{{$store->id}}</td>
+                    <tr id="col">
+                        <td class="storeid">{{$store->id}}</td>
                         <td class="editable">{{$store->store}}</td>
                         <td class="editable">{{$store->shift_admin_id}}</td>
                         {{--<td class="editable">{{$store->password}}</td>--}}
-                        <td ><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>
+                        <td ><button type="button" class="btn btn-danger btn-xs" value="{{$store->id}}"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>
                     </tr>
                 @endforeach
-                </thead>
-                <tbody>
                 </tbody>
             </table>
             <center>
@@ -51,12 +50,12 @@
             var passwd = randompasswd;
 
             addRow = function() {
-                $('#StoreList tbody').append('<tr>' +
+                $('#StoreList tbody').append('<tr id="col">' +
                         '<td class="storeid">' + (id += 1) +'</td>' +
                         '<td class="editable">店舗名を入力</td>' +
                         '<td class="editable">' + (sid += 1) +'</td>' +
 //                        '<td class="editable">' + (passwd(6)) + '</td>' +
-                        '<td><button type="button" class="btn btn-danger btn-xs" onclick="row_delete(this)" value="test"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>' +
+                        '<td><button type="button" class="btn btn-danger btn-xs" value="' + id + '"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>' +
                         '</tr>');
             };
 
@@ -74,7 +73,19 @@
             });
 
 
-
+//            $(document).on('click', '#edit', function () {
+//                if(flag){
+//                    $("#StoreList > tbody").on('click','tr > td.editable',edit_toggle());
+//                    $("#edit_text").text(" 確定 ");
+//                    flag=false
+//
+//
+//                }else{
+//                    $("#StoreList > tbody").off('click','tr > td.editable');
+//                    $("#edit_text").text(" 編集 ");
+//                    flag=true
+//                }
+//            });
             $('#edit').on('click',function () {
                 if(flag){
                     $("#StoreList > tbody").on('click','tr > td.editable',edit_toggle());
@@ -82,24 +93,23 @@
                     flag=false
 
 
+
                 }else{
                     $("#StoreList > tbody").off('click','tr > td.editable');
                     $("#edit_text").text(" 編集 ");
                     flag=true
 
+                    var tbl = document.getElementById('StoreList').items(0);
+                    var rows = tbl.rows.length;
+                    var cols = tbl.rows[0].cells.length;
 
-                    //送信内容生成
-
-
-                    //送信処理
-//                    $.post("/admin/main",
-//                            { name: "John", time: "2pm" },
-//                            function(data){
-//                                //リクエストが成功した際に実行する関数
-//                                alert("Data Loaded: " + data);
-//                            }
-//                    );
-
+                    @foreach($cols as $col)
+                        $.post("/admin/main/update",
+                            {'id':tbl.rows[$col].cells[0].innerText},
+                            {'store':tbl.rows[$col].cells[1].innerText},
+                            {'sid':tbl.rows[$col].cells[2].innerText}
+                    )
+                    @endforeach
                 }
             });
 
@@ -119,46 +129,60 @@
                     $(this).siblings().css('background', '#fff');
                 }
             },'table.table td');
+
+
+            $(document).on("click", ".btn.btn-danger.btn-xs", function () {
+                var store_id = $(this).val();
+                tr = $(this).parent().parent();
+                // trのインデックスを取得して行を削除する
+                tr.remove();
+
+
+
+                $.post("/admin/main/delete",
+                    { 'id' : store_id},
+                    function() {
+                        //リクエストが成功した際に実行する関数
+                        //alert("ok");
+                    }
+                )
+            })
         });
 
-        function row_delete(obj){
-            //行削除と同じタイミングでデータベースから行ごと削除します。
-            var id = obj.parent().children('.storeid');
-            alert(id);
-//            //送信処理
-//            $.post("/admin/main",
-//                    { 'id' : },
-//                    function(data){
-//                                //リクエストが成功した際に実行する関数
-//                                alert("Data Loaded: " + data);
-
-            tr = obj.parentNode.parentNode;
-            // trのインデックスを取得して行を削除する
-            tr.parentNode.deleteRow(tr.sectionRowIndex);
-
-
-
-//            var table = document.getElementById("StoreList");
-//            var rowcount = table.rows.length;
-//            var rows = 0;
-//            if(rowcount == 2){
-//                alert("削除する行がありません。");
-//                return;
-//            }
-//            for(var i=0;i<table.rows.length;i++){
-//                rows = table.rows[i];
-//            }
-//            table.deleteRow(rows);
-        }
+//        function row_delete(obj){
+//            //行削除と同じタイミングでデータベースから行ごと削除します。
+//            //var id = obj.parent().children('.storeid');
+//            alert($(this).val());
+////            //送信処理
+////            $.post("/admin/main",
+////                    { 'id' : },
+////                    function(data){
+////                                //リクエストが成功した際に実行する関数
+////                                alert("Data Loaded: " + data);
+//
+//            tr = obj.parentNode.parentNode;
+//            // trのインデックスを取得して行を削除する
+//            tr.parentNode.deleteRow(tr.sectionRowIndex);
+//
+//
+//
+////            var table = document.getElementById("StoreList");
+////            var rowcount = table.rows.length;
+////            var rows = 0;
+////            if(rowcount == 2){
+////                alert("削除する行がありません。");
+////                return;
+////            }
+////            for(var i=0;i<table.rows.length;i++){
+////                rows = table.rows[i];
+////            }
+////            table.deleteRow(rows);
+//        }
 
         function edit_toggle(){
-            console.log($(this));
             var edit_flag=false;
             return function() {
                 if (edit_flag) return;
-
-                //if($("#StoreList").Rows.cells[4]) return;
-
                 var $input = $("<input>").attr("type", "text").val($(this).text());
                 $(this).html($input);
 
