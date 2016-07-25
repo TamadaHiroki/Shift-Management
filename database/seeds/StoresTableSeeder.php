@@ -17,5 +17,9 @@ class StoresTableSeeder extends Seeder
             'store' => '1号店',
             'shift_admin_id' => 1,
         ]);
+        DB::table('stores')->insert([
+            'store' => '2号店',
+            'shift_admin_id' => 2,
+        ]);
     }
 }

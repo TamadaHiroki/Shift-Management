@@ -24,7 +24,7 @@ class UserCustom extends Authenticatable
     }
 
     public function user_worktime(){
-        return $this->hasMany('App\UserCustom', 'user_id', 'id');
+        return $this->hasMany('App\UserWorkTime', 'user_id', 'id');
     }
 
     public function position(){
@@ -40,5 +40,17 @@ class UserCustom extends Authenticatable
         $e = Shift::where('start','=>',$day->format('Y-m-d 00:00:00'))->where('end','<',$day->addDays(1)->format('Y-m-d 00:00:00'))
             ->where('user_id',$user_id)->first(); //タイムスタンプ型をCarbonでParseする
         return $e;
+    }
+    
+    public function getWeek(){
+        //現時刻から一か月後の時間を取得したい場合
+        //$time = new Carbon(Carbon::now());
+//        $time = new Carbon('first day of next months');
+//        $time->setTimezone('Asia/Tokyo');   //タイムゾーンを設定
+//        setlocale(LC_ALL, 'ja_JP.UTF-8');
+//        $time2 = Carbon::now()->formatLocalized('%Y年%m月%d日(%a)');
+//        $week = array("日", "月", "火", "水", "木", "金", "土");
+        //$time = (int)$time->format('w');
+        return "test";
     }
 }

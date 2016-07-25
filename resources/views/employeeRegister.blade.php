@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('ShiftMain.layouts.master')
 
 @section('title')
     @@parent
@@ -138,8 +138,7 @@
 											{{--</tr>--}}
 											</tbody>
 										</table>
-										<div>※水色の欄＝始業可能時間　白色の欄＝最終就業時間</div>
-										<div>※ひとつの曜日につき２つ時間帯を入力できます</div>
+										<div>※水色の欄＝始業可能時間　白色の欄＝最終就業時間</div><br>
 											<button class="btn btn-success btn-lg">追加</button>
 									</fieldset>
 								</form>

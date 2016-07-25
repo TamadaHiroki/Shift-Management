@@ -21,7 +21,7 @@ class Stores extends Model
         return $this->belongsTo('App\ShiftAdmin', 'shift_admin_id', 'id');
     }
     
-    public function user(){
+    public function users(){
         return $this->hasMany('App\UserCustom', 'store_id', 'id');
     }
 }

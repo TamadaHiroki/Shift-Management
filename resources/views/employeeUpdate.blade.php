@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('ShiftMain.layouts.master')
 
 @section('title')
     @@parent
@@ -64,59 +64,114 @@
                                     <tr style="background-color:#CCFFFF">
                                         @for($i = 1; $i <= 7; $i++)
                                             @foreach($worktimes as $worktime)
-                                                @if($worktime->week_day == $i)
-                                                    <td class="{{$i}}">
-                                                        <select name="select_1[]">
-                                                            <option value="">  </option>
-                                                            @for($j = 6; $j <= 23; $j++)
-                                                                @if($j == $worktime->start_time)
-                                                                    <option value="{{$j}}" selected>{{$j}}</option>
-                                                                @else
-                                                                    <option value="{{$j}}">{{$j}}</option>
-                                                                @endif
-                                                            @endfor
-                                                        </select> 時
-                                                        <select name="select_2[]">
-                                                            <option value="">  </option>
-                                                            @for($j = 0; $j <= 45; $j = $j + 15)
-                                                                @if($j == $worktime->start_minute)
-                                                                    <option value="{{$j}}" selected>{{$j}}</option>
-                                                                @else
-                                                                    <option value="{{$j}}">{{$j}}</option>
-                                                                @endif
-                                                            @endfor
-                                                        </select> 分から<br>
-                                                    </td>
+                                                @if($i == 7)
+                                                    @if($worktime->week_day == 0)
+                                                        <td class="{{$i}}">
+                                                            <select name="select_1[]">
+                                                                <option value="">  </option>
+                                                                @for($j = 6; $j <= 23; $j++)
+                                                                    @if($j == $worktime->start_time)
+                                                                        <option value="{{$j}}" selected>{{$j}}</option>
+                                                                    @else
+                                                                        <option value="{{$j}}">{{$j}}</option>
+                                                                    @endif
+                                                                @endfor
+                                                            </select> 時
+                                                            <select name="select_2[]">
+                                                                <option value="">  </option>
+                                                                @for($j = 0; $j <= 45; $j = $j + 15)
+                                                                    @if($j == $worktime->start_minute)
+                                                                        <option value="{{$j}}" selected>{{$j}}</option>
+                                                                    @else
+                                                                        <option value="{{$j}}">{{$j}}</option>
+                                                                    @endif
+                                                                @endfor
+                                                            </select> 分から<br>
+                                                        </td>
+                                                    @endif
+                                                @else
+                                                    @if($worktime->week_day == $i)
+                                                        <td class="{{$i}}">
+                                                            <select name="select_1[]">
+                                                                <option value="">  </option>
+                                                                @for($j = 6; $j <= 23; $j++)
+                                                                    @if($j == $worktime->start_time)
+                                                                        <option value="{{$j}}" selected>{{$j}}</option>
+                                                                    @else
+                                                                        <option value="{{$j}}">{{$j}}</option>
+                                                                    @endif
+                                                                @endfor
+                                                            </select> 時
+                                                            <select name="select_2[]">
+                                                                <option value="">  </option>
+                                                                @for($j = 0; $j <= 45; $j = $j + 15)
+                                                                    @if($j == $worktime->start_minute)
+                                                                        <option value="{{$j}}" selected>{{$j}}</option>
+                                                                    @else
+                                                                        <option value="{{$j}}">{{$j}}</option>
+                                                                    @endif
+                                                                @endfor
+                                                            </select> 分から<br>
+                                                        </td>
+                                                    @endif
                                                 @endif
+
                                             @endforeach
                                         @endfor
                                     </tr>
                                     <tr>
                                         @for($i = 8; $i <= 14; $i++)
                                             @foreach($worktimes as $worktime)
-                                                @if($worktime->week_day == $i - 7)
-                                            <td class="{{$i}}">
-                                                <select name="select_3[]">
-                                                    <option value="">  </option>
-                                                    @for($j = 6; $j <= 23; $j++)
-                                                        @if($j == $worktime->end_time)
-                                                            <option value="{{$j}}" selected>{{$j}}</option>
-                                                        @else
-                                                            <option value="{{$j}}">{{$j}}</option>
-                                                        @endif
-                                                    @endfor
-                                                </select> 時
-                                                <select name="select_4[]">
-                                                    <option value="">  </option>
-                                                    @for($j = 0; $j <= 45; $j = $j + 15)
-                                                        @if($j == $worktime->end_minute)
-                                                            <option value="{{$j}}" selected>{{$j}}</option>
-                                                        @else
-                                                            <option value="{{$j}}">{{$j}}</option>
-                                                        @endif
-                                                    @endfor
-                                                </select> 分まで
-                                            </td>
+                                                @if($i == 14)
+                                                    @if($worktime->week_day == 0)
+                                                        <td class="{{$i}}">
+                                                            <select name="select_3[]">
+                                                                <option value="">  </option>
+                                                                @for($j = 6; $j <= 23; $j++)
+                                                                    @if($j == $worktime->end_time)
+                                                                        <option value="{{$j}}" selected>{{$j}}</option>
+                                                                    @else
+                                                                        <option value="{{$j}}">{{$j}}</option>
+                                                                    @endif
+                                                                @endfor
+                                                            </select> 時
+                                                            <select name="select_4[]">
+                                                                <option value="">  </option>
+                                                                @for($j = 0; $j <= 45; $j = $j + 15)
+                                                                    @if($j == $worktime->end_minute)
+                                                                        <option value="{{$j}}" selected>{{$j}}</option>
+                                                                    @else
+                                                                        <option value="{{$j}}">{{$j}}</option>
+                                                                    @endif
+                                                                @endfor
+                                                            </select> 分まで
+                                                        </td>
+                                                    @endif
+                                                @else
+                                                    @if($worktime->week_day == $i - 7)
+                                                        <td class="{{$i}}">
+                                                            <select name="select_3[]">
+                                                                <option value="">  </option>
+                                                                @for($j = 6; $j <= 23; $j++)
+                                                                    @if($j == $worktime->end_time)
+                                                                        <option value="{{$j}}" selected>{{$j}}</option>
+                                                                    @else
+                                                                        <option value="{{$j}}">{{$j}}</option>
+                                                                    @endif
+                                                                @endfor
+                                                            </select> 時
+                                                            <select name="select_4[]">
+                                                                <option value="">  </option>
+                                                                @for($j = 0; $j <= 45; $j = $j + 15)
+                                                                    @if($j == $worktime->end_minute)
+                                                                        <option value="{{$j}}" selected>{{$j}}</option>
+                                                                    @else
+                                                                        <option value="{{$j}}">{{$j}}</option>
+                                                                    @endif
+                                                                @endfor
+                                                            </select> 分まで
+                                                        </td>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endfor
@@ -132,8 +187,7 @@
                                     {{--</tr>--}}
                                     </tbody>
                                 </table>
-                                <div>※水色の欄＝始業可能時間　白色の欄＝最終就業時間</div>
-                                <div>※ひとつの曜日につき２つ時間帯を入力できます</div>
+                                <div>※水色の欄＝始業可能時間　白色の欄＝最終就業時間</div><br>
                                 <button class="btn btn-warning btn-lg">変更</button>
                         </fieldset>
                     </form>

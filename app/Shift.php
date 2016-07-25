@@ -12,16 +12,24 @@ use Carbon\Carbon;
 
 class Shift extends Model{
 
-        protected $table = 'shift'; //テーブル名指定
+    protected $table = 'shift'; //テーブル名指定
 
-        /**
-         * The attributes that are mass assignable.
-         *
-         * @var array
-         */
-        protected $fillable = [
-            'id', 'user_id', 'start', 'end'
-        ];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'id', 'user_id', 'start', 'end'
+    ];
+
+    /**
+     * @var array
+     * $datesプロパティを設定すると$datesプロパティが指すフィールドに対して
+     * データを取得した際にDateTime型のラッパークラスであるCarbonクラスのデータに置き換える処理を自動でやってくれる
+     * 便利！
+     */
+    protected $dates = ['start', 'end'];
 
     public function user(){
         return $this->belongsTo('App\UserCustom', 'user_id', 'id');

@@ -21,7 +21,7 @@
                     <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                         <ul class="nav navbar-nav">
 
-                            <button type="button" onclick="location.href='logout'" class="btn btn-lg btn-block btn-success">&nbsp; ログアウト &nbsp;</button>
+                            <button type="button" onclick="location.href='/logout'" class="btn btn-lg btn-block btn-success">&nbsp; ログアウト &nbsp;</button>
                             <!--<a href="logout.html"><font color="white">ログアウト</font> </a>-->
 
                             </li>

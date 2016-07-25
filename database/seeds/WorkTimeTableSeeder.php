@@ -13,6 +13,31 @@ class WorkTimeTableSeeder extends Seeder
     {
         DB::table('user_worktime')->truncate();
 
+        DB::table('user_worktime')->insert([
+            'user_id' => 1,
+            'week_day' => '0',  //0：日曜日
+            'start_time' => '09:30:00',
+            'end_time' => '18:30:00',
+        ]);
+        DB::table('user_worktime')->insert([
+            'user_id' => 2,
+            'week_day' => '0',  //0：日曜日
+            'start_time' => '09:30:00',
+            'end_time' => '18:30:00',
+        ]);
+        DB::table('user_worktime')->insert([
+            'user_id' => 3,
+            'week_day' => '0',  //0：日曜日
+            'start_time' => '10:30:00',
+            'end_time' => '21:45:00',
+        ]);
+        DB::table('user_worktime')->insert([
+            'user_id' => 4,
+            'week_day' => '0',  //0：日曜日
+            'start_time' => '00:00:00',
+            'end_time' => '00:00:00',
+        ]);
+
         for($i = 1; $i < 5; $i++){
             DB::table('user_worktime')->insert([
                 'user_id' => $i,
@@ -50,12 +75,7 @@ class WorkTimeTableSeeder extends Seeder
                 'start_time' => '10:00:00',
                 'end_time' => '18:00:00',
             ]);
-            DB::table('user_worktime')->insert([
-                'user_id' => $i,
-                'week_day' => '7',  //７：日曜日
-                'start_time' => '09:30:00',
-                'end_time' => '18:00:00',
-            ]);
+
         }
 
     }

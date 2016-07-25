@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('ShiftMain.layouts.master')
 
 @section('title')
     @@parent
@@ -39,15 +39,13 @@
 						<tbody>
 							@foreach ($users as $user)
 							<tr>
-								<td><input type="checkbox" class="sakuzyo" name="select" value="{{$user->id}}" ></td>
-								<td>{{$user->username}}</td>
+								<td><input type="checkbox" class="sakuzyo" name="select" value="{{$user->id}}" id="user_id"></td>
+								<td class="user_name">{{$user->username}}</td>
 								<td>{{$user->tell}}</td>
 								<td>{{$user->email}}</td>
 								<td>{{$user->position->position}}</td>
-								<td><button class="btn btn-default btn-xs" id="modal-open">週間表示</button></td>
-								<form method="GET" action="/shift/management/update/{{$user->id}}">
-									<td><input type="submit" class="btn btn-default btn-xs" value="変更"></td>
-								</form>
+								<td><button class="btn btn-default btn-xs" id="modal-open" value="{{$user->id}}" name="test">週間表示</button></td>
+								<td><a href="/shift/management/update/{{$user->id}}"><input type="submit" class="btn btn-default btn-xs" value="変更"></a></td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -67,12 +65,27 @@
 @section('footer')
     @@parent
 @endsection
+
 @section('javascript')
 	<script type="text/javascript">
-		$.ajaxSetup({
-			headers: {
-				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			}
+		$(function(){
+			$('.btn.btn-default.btn-xs').click(function () {
+				$('#modal_save').hide();
+				$('#modal_title').text($(this).parent().siblings('.user_name').text() + " さんの勤務可能時間");
+				//alert($(this).val())
+				$.get("/shift/management/worktime",
+						{'user_id': $(this).val()},		//配列にキー名をつけて送信
+						function(data){
+							//リクエストが成功した際に実行する関数
+							//モーダルウィンドウに結果を表示
+							for(var i = 0; i < data.length; i++){
+								$('#modal_main').text(data[i]['start_time']);
+							}
+							//$('#modal_main').text(data[0]);
+							$('#sampleModal').modal();
+						}
+				);
+			});
 		});
 		//従業員削除ボタンが押された時のイベント
 		function clickDelete(){
@@ -86,7 +99,7 @@
 			if(check == true){
 				//post送信でリクエストを送信
 				$.post("/shift/management/delete",
-						{'select': [checkValue]},		//配列にキー名をつけて送信
+						{'select': checkValue},		//配列にキー名をつけて送信
 						function(){
 							//リクエストが成功した際に実行する関数
 							location.reload();		//ページを更新
