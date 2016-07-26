@@ -154,10 +154,29 @@ Route::group(['middleware' => 'guestAdmin:admin','prefix' => 'admin'], function 
  * 店舗管理者ログイン後の画面グループ
  */
 Route::group(['middleware' => 'authAdmin:admin', 'prefix' => 'admin'], function () {    //prefixは付けると /userとなる
-    Route::get('/top', function ()    {
-        // authミドルウェアが使用される
-        return "OK!";   //test用
+//    Route::get('/top', function ()    {
+//        // authミドルウェアが使用される
+//        return "OK!";   //test用
+//    });
+
+    Route::get('/main', 'StoreListController@StoreList');
+
+//同上
+//店舗リスト
+    Route::post('/main', 'StoreListController@StoreList');
+    Route::post('/main/add', 'StoreListController@StoreListAdd');
+    Route::post('/main/delete','StoreListController@StoreDelete');
+    Route::post('/main/update','StoreListController@StoreUpdate');
+
+
+    Route::get('index', function () {
+        return view('index');
     });
+
+    Route::get('admin/storeManage', function () {
+        return view('storeManage');
+    });
+
     Route::get('/logout', function ()    {
         // authミドルウェアが使用される
         Auth::guard('admin')->logout();
@@ -166,31 +185,31 @@ Route::group(['middleware' => 'authAdmin:admin', 'prefix' => 'admin'], function 
 
 });
 
-//サイドバーのホームボタン用
-Route::get('main', function () {
-    if (Auth::guard('shiftAdmin')->check()){
-        return redirect('/shift/main');
-    }else if(Auth::guard('user')->check()){
-        return redirect('/user/main');
-    }else if(Auth::guard('admin')->check()){
-        return redirect('/admin/main');
-    }else{
-        return redirect('/');
-    }
-});
+////サイドバーのホームボタン用
+//Route::get('main', function () {
+//    if (Auth::guard('shiftAdmin')->check()){
+//        return redirect('/shift/main');
+//    }else if(Auth::guard('user')->check()){
+//        return redirect('/user/main');
+//    }else if(Auth::guard('admin')->check()){
+//        return redirect('/admin/main');
+//    }else{
+//        return redirect('/');
+//    }
+//});
 
-//ヘッダーのログアウトボタン用
-Route::get('logout', function () {
-    if (Auth::guard('shiftAdmin')->check()){
-        return redirect('/shift/logout');
-    }else if(Auth::guard('user')->check()){
-        return redirect('/user/logout');
-    }else if(Auth::guard('admin')->check()){
-        return redirect('/admin/logout');
-    }else{
-        return redirect('/');
-    }
-});
+////ヘッダーのログアウトボタン用
+//Route::get('logout', function () {
+//    if (Auth::guard('shiftAdmin')->check()){
+//        return redirect('/shift/logout');
+//    }else if(Auth::guard('user')->check()){
+//        return redirect('/user/logout');
+//    }else if(Auth::guard('admin')->check()){
+//        return redirect('/admin/logout');
+//    }else{
+//        return redirect('/');
+//    }
+//});
 //Route::get('main', function () {
 //    return view('main');
 //});
@@ -204,9 +223,9 @@ Route::get('passchange', function () {
     return view('passchange');
 });
 
-Route::get('admin/main', function () {
-    return view('admin.main');
-});
+//Route::get('admin/main', function () {
+//    return view('admin.main');
+//});
 
 Route::get('index', function () {
     return view('index');

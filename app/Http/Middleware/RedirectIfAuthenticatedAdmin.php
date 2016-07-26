@@ -20,7 +20,7 @@ class RedirectIfAuthenticatedAdmin
         //ログインしているのにログイン画面にいこうとした場合、ログイン後のページに飛ばす
         if (Auth::guard('admin')->check()) {
 	//if($gyard == 'admin') こっちのほうがいいかも
-            return redirect('/admin/top');
+            return redirect('/admin/main');
         }
 
         return $next($request);
