@@ -79,17 +79,26 @@
 						function(data){
 							//リクエストが成功した際に実行する関数
 							//モーダルウィンドウに結果を表示
-							var text = "";
 							$('#modal_main').text("");
 							for(var i = 1; i <= data.length; i++){
 								if(i == 7){
-									$('#modal_main').append(
-											'<p style="font-size: 18px">(' + week[data[0]['week_day']] + ') '+ data[0]['start_time'] + '時'
-											+ data[0]['start_minute'] +  '分 ～ ' + data[0]['end_time'] + '時'+ data[0]['end_minute'] + '分まで</p>');
+									if(data[0]['start_time'] == "0" || data[0]['end_time'] == "0"){
+										$('#modal_main').append(
+												'<p style="font-size: 18px">(' + week[data[0]['week_day']] + ') に勤務可能時間はありません</p>');
+									}else{
+										$('#modal_main').append(
+												'<p style="font-size: 18px">(' + week[data[0]['week_day']] + ') '+ data[0]['start_time'] + '時'
+												+ data[0]['start_minute'] +  '分 ～ ' + data[0]['end_time'] + '時'+ data[0]['end_minute'] + '分まで</p>');
+									}
 								}else{
-									$('#modal_main').append(
-											'<p style="font-size: 18px">(' + week[data[i]['week_day']] + ') '+ data[i]['start_time'] + '時'
-											+ data[i]['start_minute'] +  '分 ～ ' + data[i]['end_time'] + '時'+ data[i]['end_minute'] + '分まで</p>');
+									if(data[i]['start_time'] == "0" || data[i]['end_time'] == "0"){
+										$('#modal_main').append(
+												'<p style="font-size: 18px">(' + week[data[i]['week_day']] + ') に勤務可能時間はありません</p>');
+									}else{
+										$('#modal_main').append(
+												'<p style="font-size: 18px">(' + week[data[i]['week_day']] + ') '+ data[i]['start_time'] + '時'
+												+ data[i]['start_minute'] +  '分 ～ ' + data[i]['end_time'] + '時'+ data[i]['end_minute'] + '分まで</p>');
+									}
 								}
 							}
 							//$('#modal_main').text(text);
