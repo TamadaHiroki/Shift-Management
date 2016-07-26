@@ -43,7 +43,9 @@ class StoreListController extends Controller{
         $store = Request::input('store');
         $sid = Request::input('sid');
 
-            ->update([$id,$store,$sid]);
+        $id ->update([$id]);
+        $store ->update([$store]);
+        $sid ->update([$sid]);
 
 
     }

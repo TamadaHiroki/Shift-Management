@@ -21,7 +21,7 @@
                     <tr id="col">
                         <td class="storeid">{{$store->id}}</td>
                         <td class="editable">{{$store->store}}</td>
-                        <td class="editable">{{$store->shift_admin_id}}</td>
+                        <td >{{$store->shift_admin_id}}</td>
                         {{--<td class="editable">{{$store->password}}</td>--}}
                         <td ><button type="button" class="btn btn-danger btn-xs" value="{{$store->id}}"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>
                     </tr>
@@ -53,7 +53,7 @@
                 $('#StoreList tbody').append('<tr id="col">' +
                         '<td class="storeid">' + (id += 1) +'</td>' +
                         '<td class="editable">店舗名を入力</td>' +
-                        '<td class="editable">' + (sid += 1) +'</td>' +
+                        '<td>' + (sid += 1) +'</td>' +
 //                        '<td class="editable">' + (passwd(6)) + '</td>' +
                         '<td><button type="button" class="btn btn-danger btn-xs" value="' + id + '"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>' +
                         '</tr>');
@@ -103,13 +103,13 @@
                     var rows = tbl.rows.length;
                     var cols = tbl.rows[0].cells.length;
 
-                    @foreach($cols as $col)
-                        $.post("/admin/main/update",
-                            {'id':tbl.rows[$col].cells[0].innerText},
-                            {'store':tbl.rows[$col].cells[1].innerText},
-                            {'sid':tbl.rows[$col].cells[2].innerText}
-                    )
-                    @endforeach
+                    {{--@foreach($cols as $col)--}}
+                        {{--$.post("/admin/main/update",--}}
+                            {{--{'id':tbl.rows[$col].cells[0].innerText},--}}
+                            {{--{'store':tbl.rows[$col].cells[1].innerText},--}}
+                            {{--{'sid':tbl.rows[$col].cells[2].innerText}--}}
+                        {{--)--}}
+                    {{--@endforeach--}}
                 }
             });
 
