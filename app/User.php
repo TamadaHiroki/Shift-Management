@@ -31,8 +31,12 @@ class User extends Authenticatable
     }
 
     public function getShift($day,$user_id){
+//        $day = Carbon::parse($day);
+//        return Shift::where('start','=>',$day->format('Y-m-d H:i:s'))->where('end','<',$day->addDays(1)->format('Y-m-d H:i:s'))
+//            ->where('user_id',$user_id)->first();
         $day = Carbon::parse($day);
-        return Shift::where('start','=>',$day->format('Y-m-d H:i:s'))->where('end','<',$day->addDays(1)->format('Y-m-d H:i:s'))
-            ->where('user_id',$user_id)->first();
+        $e = Shift::where('start','>=',$day->format('Y-m-d 00:00:00'))->where('end','<',$day->addDays(1)->format('Y-m-d 00:00:00'))
+            ->where('user_id',$user_id)->first(); //タイムスタンプ型をCarbonでParseする
+        return $e;
     }
 }

@@ -17,12 +17,37 @@ class ShiftController extends Controller
         $carbon = Carbon::now();
         $a[] = $carbon->format('d');
         $b[] = $carbon->format('Y-m-d H:i:s');
-        
+        $c[] = $carbon->dayOfWeek;
+        $e = $carbon->month;
+
+        //1週間
         for($i=1;$i<7;$i++){
             $a[] = $carbon->addDays(1)->format('d');
             $b[] = $carbon->format('Y-m-d H:i:s');
+            $c[] = $carbon->dayOfWeek;
+            $e = $carbon->month;
         }
-        
-        return view('sift', ['positions' => $positions,'test' => $a,'test2' =>$b]);
+        return view('sift', ['positions' => $positions,'test' => $a,'test2' =>$b,'test3' =>$c,'test4' =>$e]);
+    }
+
+    public function index2(){
+
+        $positions = Position::all();
+
+        $carbon2 = Carbon::now();
+        $d[] = $carbon2->format('Y-m-d H:i:s');
+        $f = $carbon2->daysInMonth;
+        $g[] = $carbon2->format('d');
+        $h = $carbon2->month;
+
+        //1ヶ月
+        for($i=1;$i<$f;$i++){
+            $g[] = $carbon2->addDays(1)->format('d');
+            $d[] = $carbon2->format('Y-m-d H:i:s');
+            $f = $carbon2->daysInMonth;
+            $h = $carbon2->month;
+        }
+
+        return view('sift', ['positions' => $positions,'day'=>$g,'m'=>$d,'month'=>$f,'nm'=>$h]);
     }
 }

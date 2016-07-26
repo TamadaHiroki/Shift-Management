@@ -56,7 +56,12 @@ use Illuminate\Support\Facades\Auth;
             return "OK!";   //test用
         });
 
-        
+        Route::get('main', function () {
+            return view('main');
+        });
+
+        Route::get('/siftview', 'ShiftController@index');
+
         Route::get('/logout', function ()    {
             // authミドルウェアが使用される
 	    //ログアウトはこっちのほうがいいかも (Auth::guard($this->getGuard())->logout();)
@@ -103,9 +108,13 @@ Route::group(['middleware' => 'authShift:shiftAdmin', 'prefix' => 'shift'], func
 //        session()->forget('shift_admin_id');
 //        return redirect("shift/login");   //test用
 //    });
+
     //シフト調整画面表示
     Route::get('/adjustment', 'ShiftAdjustmentController@adjustment');
     Route::post('/adjustment', 'ShiftAdjustmentController@adjustment');
+
+    Route::get('/shiftview', 'ShiftController@index');
+
     /**
      * 従業員管理画面のグループ
      */
@@ -212,13 +221,13 @@ Route::get('index', function () {
     return view('index');
 });
 
-Route::get('sift', 'ShiftController@index');
-
 Route::get('admin/storeManage', function () {
     return view('storeManage');
 });
 
-
+Route::get('month', function () {
+    return view('siftmonth');
+});
 
 /**
  * テスト用 ルート

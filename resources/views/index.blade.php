@@ -23,7 +23,7 @@
                 <button type="button" class="btn btn-primary" id="add"><i class="glyphicon glyphicon-ok-sign"></i> 登録 </button>
                 <button type="button" class="btn btn-info" id="edit"><i class="glyphicon glyphicon-pencil"></i><span id="edit_text"> 編集 </span></button>
                 {{--<button type="button" class="btn btn-danger" id="delete"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button>--}}
-                <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-refresh"></i> 戻る </button>
+                <button type="button" class="btn btn-success" onclick="location.href='/shift/shiftmain'")><i class="glyphicon glyphicon-refresh"></i> 戻る </button>
             </center>
         </div>
     </div>
@@ -42,6 +42,14 @@
 
             $('#add').on('click', function() {
                 addRow();
+
+                $.post("/admin/main/add",
+                        { "position_id":id ,"sid":sid,"id":id},
+                        function(){
+                            //リクエストが成功した際に実行する関数
+                            //alert("追加しました");
+                        }
+                );
             });
 
             $('#edit').on('click',function () {
@@ -55,6 +63,10 @@
                     flag=true
                 }
             });
+
+            $('#return').on('click', function () {
+
+            })
 
 //            $("#delete").on('click',function(){
 //                $("#example > tbody").on('click','td',row_delete());

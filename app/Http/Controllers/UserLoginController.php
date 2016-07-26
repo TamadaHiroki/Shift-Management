@@ -36,7 +36,7 @@ class UserLoginController extends Controller{
 
         if ($auth->attempt(['id' => Request::get('id'), 'password' => Request::get('password')])) {
             // 認証通過…
-            return redirect()->intended('/user/top');
+            return redirect()->intended('/user/siftview');
         }else{
 //            //エラーメッセージ作成
 //            $messages = [
