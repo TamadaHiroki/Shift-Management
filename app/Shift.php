@@ -7,34 +7,33 @@
  */
 
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-class Shift extends Model
-{
-    protected $table = 'shift'; //テーブル名指定
+class Shift extends Model{
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'id', 'user_id', 'start', 'end'
-    ];
+        protected $table = 'shift'; //テーブル名指定
+
+        /**
+         * The attributes that are mass assignable.
+         *
+         * @var array
+         */
+        protected $fillable = [
+            'id', 'user_id', 'start', 'end'
+        ];
 
     public function user(){
         return $this->belongsTo('App\UserCustom', 'user_id', 'id');
     }
-    
+
     public function getStartTime(){
         date_default_timezone_set('Asia/Tokyo');
         $carbon = Carbon::parse($this->start);
         $day = date('m/d');
-        return $carbon;//$carbon->format('h:i');
+        return $carbon->format('h:i');
     }
-    
+
     public function getEndTime(){
         $carbon = Carbon::parse($this->end);
         return $carbon->format('h:i');

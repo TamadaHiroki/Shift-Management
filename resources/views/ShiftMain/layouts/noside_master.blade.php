@@ -3,7 +3,6 @@
 <head>
     <title>Bootstrap Admin Theme v3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap -->
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- styles -->
@@ -25,7 +24,7 @@
 
 <div class="page-content">
     <div class="row">
-        @include('layouts.sidebar')
+        {{--@include('layouts.sidebar') --}}
 
         <!-- コンテンツが入る -->
         @yield('content')

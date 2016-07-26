@@ -3,7 +3,6 @@
 <head>
     <title>Bootstrap Admin Theme v3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap -->
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- styles -->
@@ -19,13 +18,13 @@
 <body>
 
 <!-- ヘッダー -->
-@include('layouts.header')
+@include('ShiftMain.layouts.header')
 
 <!-- サイドバー -->
 
 <div class="page-content">
     <div class="row">
-        @include('layouts.sidebar')
+        @include('ShiftMain.layouts.sidebar')
 
         <!-- コンテンツが入る -->
         @yield('content')
@@ -34,7 +33,7 @@
 </div>
 
 <!-- フッター -->
-@include('layouts.footer')
+@include('ShiftMain.layouts.footer')
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://code.jquery.com/jquery.js"></script>

@@ -37,8 +37,11 @@ class UserCustom extends Authenticatable
 
     public function getShift($day,$user_id){
         $day = Carbon::parse($day);
-        $e = Shift::where('start','=>',$day->format('Y-m-d 00:00:00'))->where('end','<',$day->addDays(1)->format('Y-m-d 00:00:00'))
+        $e = Shift::where('start','>=',$day->format('Y-m-d 00:00:00'))->where('end','<',$day->addDays(1)->format('Y-m-d 00:00:00'))
             ->where('user_id',$user_id)->first(); //タイムスタンプ型をCarbonでParseする
+//        \DB::connection()->enableQueryLog();
+//        $q = \DB::getQueryLog();
+//        var_dump($q);
         return $e;
     }
 }

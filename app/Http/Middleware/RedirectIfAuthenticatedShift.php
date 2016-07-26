@@ -19,7 +19,7 @@ class RedirectIfAuthenticatedShift
     {
         //ログインしているのにログイン画面にいこうとした場合、ログイン後のページに飛ばす
         if (Auth::guard('shiftAdmin')->check()) {
-            return redirect('/shift/top');
+            return redirect('/shift/main');
         }
 
         return $next($request);

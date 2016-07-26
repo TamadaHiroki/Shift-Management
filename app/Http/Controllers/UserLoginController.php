@@ -24,7 +24,11 @@ class UserLoginController extends Controller{
         return view('login');
 
     }
-    
+//        認証 こんな感じで認証したほうがいいかも
+//        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+//            return $this->handleUserWasAuthenticated($request, $throttles);
+//        }
+
     //ログイン認証
     public function loginCheck(){
         //Guardを選択(user)
@@ -32,7 +36,7 @@ class UserLoginController extends Controller{
 
         if ($auth->attempt(['id' => Request::get('id'), 'password' => Request::get('password')])) {
             // 認証通過…
-            return redirect()->intended('/user/top');
+            return redirect()->intended('/user/siftview');
         }else{
 //            //エラーメッセージ作成
 //            $messages = [

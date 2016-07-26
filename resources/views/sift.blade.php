@@ -1,85 +1,65 @@
 @extends('layouts.noside_master')
 
 @section('content')
+    <?php use Carbon\Carbon; ?>
     <div class="page-content">
 
         <!-- styles -->
-        <button  class="btn btn-info btn-lg"> 先週 </button>
-        <button class="btn btn-info btn-lg" id = "edit2"> 次週 </button>
-        <button class="btn btn-info btn-lg" id = "edit"> 戻る </button>
+        <!-- fromを使って送信する処理を書く -->
+        {{--<form method="post">--}}
+            {{--<button class="btn btn-info btn-lg" id="prev"> 先週</button>--}}
+            {{--<button class="btn btn-info btn-lg" id="next"> 次週</button>--}}
+        {{--</form>--}}
+        @if(Auth::guard('shiftAdmin')->check())
+            <button class="btn btn-info btn-lg" id="main" onclick="location.href='/shift/main'"> 戻る</button>
+            <button class="btn btn-info btn-lg" onclick="location.href='/month'"> 1ヶ月表示</button>
+        @else
+            <button class="btn btn-info btn-lg" id="main" onclick="location.href='/user/main'"> 戻る</button>
+            <button class="btn btn-info btn-lg" onclick="location.href='/month'"> 1ヶ月表示</button>
+        @endif
+
+        <?php $Day = ["日", "月", "火", "水", "木", "金", "土"]; ?>
 
         <div class="content-box-large">
+            <h3 class="month" align="center">{{$test4}}月</h3>
+            @if(Auth::guard('user')->check())
+                <h4 align="right">{{Auth::guard('user')->user()->username}} さん</h4>
+            @endif
             <div class="panel-body">
-                <table class="table" id="sift">
+                <table class="table" id="shift">
                     <thead>
                     <tr>
                         <th>ポジション</th>
                         <th>名前</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        @foreach($test as $a)
+                            <th>{{$a}}</th>
+                        @endforeach
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        @foreach($test3 as $c)
+                            <td>{{$Day[$c]}}</td>
+                        @endforeach
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>軍艦</td>
-                        <td>1-2</td>
-                        <td>1-3</td>
-                        <td>1-4</td>
-                        <td>1-5</td>
-                        <td>1-6</td>
-                        <td>1-7</td>
-                        <td>1-8</td>
-                        <td>1-9</td>
-                    </tr>
-                    <tr>
-                        <td>2-1</td>
-                        <td>2-2</td>
-                        <td>2-3</td>
-                        <td>2-4</td>
-                        <td>2-5</td>
-                        <td>2-6</td>
-                        <td>2-7</td>
-                        <td>2-8</td>
-                        <td>2-9</td>
-                    </tr>
-                    <tr>
-                        <td>3-1</td>
-                        <td>3-2</td>
-                        <td>3-3</td>
-                        <td>3-4</td>
-                        <td>3-5</td>
-                        <td>3-6</td>
-                        <td>3-7</td>
-                        <td>3-8</td>
-                        <td>3-9</td>
-                    </tr>
-                    <tr>
-                        <td>4-1</td>
-                        <td>4-2</td>
-                        <td>4-3</td>
-                        <td>4-4</td>
-                        <td>4-5</td>
-                        <td>4-6</td>
-                        <td>4-7</td>
-                        <td>4-8</td>
-                        <td>4-9</td>
-                    </tr>
+                    @foreach ($positions as $position)
+                            @foreach($position->users as $user)
+                                <tr id="color">
+                                    <td>{{$position->position}}</td>
+                                    <td>{{$user->username}}</td>
+                                    @foreach($test2 as $a)
+                                        <td><!--{{$shift = $user->getShift($a,$user->id)}}-->
+                                            @if($shift != null)
+                                                {{$shift->getStartTime()}}<br>
+                                                {{$shift->getEndTime()}}
+                                            @endif
+                                        </td>
+                                    @endforeach
+                                </tr>
+                            @endforeach
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -92,45 +72,63 @@
     <script type="text/javascript">
 
 
-            $(document).ready(function () {
-                var editRow;
-                var editEE;
-                editEE = function () {
-                    var myDate = new Date();
-                    var myDay = myDate.getDate();
+        $(document).ready(function () {
 
-                    for (var i = 3; i < 10; i++) {
-                        $('table#sift thead tr th:nth-child(' + i + ')').text(myDay);
-                        myDate.setDate(myDate.getDate() + 1);
-                        myDay = myDate.getDate();
-                    }
-                };
+//            if(Auth::guard('user')->user()->username)
+            document.getElementById('color').style.backgroundColor = '#ff0000';
 
-                editRow = function () {
-                    var myDate = new Date();
-                    //var dayOfMonth = myDate.getDate();
-                    //var myY = myDate.getFullYear();
-                    //var myM=myDate.getMonth(); //月の値 取得
-                    var myD = myDate.getDay(); //日の曜日の値 取得
-                    var myDay = new Array("日", "月", "火", "水", "木", "金", "土"); //配列オブジェクトを生成
-                    //myDate = new Date( myY,myM-1,myD); //指定した時刻を表す日付オブジェクトを作成
-                    //var myWeek = myDate.getDay(); //曜日の
-                    for (var i = 3; i < 10; i++) {
-                        $('table#sift thead tr td:nth-child(' + i + ')').text(myDay[myD]);
-                        myDate.setDate(myDate.getDate() + 1);
-                        myD = myDate.getDay();
-                    }
-                };
+//            var myDate = new Date();
+//            var myDay = myDate.getDate();
+//            var myD = myDate.getDay();
+//            var myM = myDate.getMonth();
+//            var Day = new Array("日", "月", "火", "水", "木", "金", "土");
+//            var obj = document.getElementsByTagName("h3");
+//            obj[0].innerHTML = (myM + 1) + "月"
+//
+//            for (var i = 3; i < 10; i++) {
+//                //$('table#shift thead tr th:nth-child(' + i + ')').text(myDay);
+//                $('table#shift thead tr td:nth-child(' + i + ')').text(Day[myD]);
+//                myDate.setDate(myDate.getDate() + 1);
+//                myD = myDate.getDay();
+//                myDay = myDate.getDate();
+//            }
+//
+//            var table = document.getElementById('shift');
+//
+//            $('#prev').on('click', function () {
+//
+//                myDate.setDate(myDate.getDate() - 14);
+//                myD = myDate.getDay();
+//                myDay = myDate.getDate();
+//                myM = myDate.getMonth();
+//
+//                for (var i = 3; i < 10; i++) {
+//                    $('table#shift thead tr th:nth-child(' + i + ')').text(myDay);
+//                    $('table#shift thead tr td:nth-child(' + i + ')').text(Day[myD]);
+//                    obj[0].innerHTML = "<center>" + (myM + 1) + "月</center>"
+//                    myDate.setDate(myDate.getDate() + 1);
+//                    myD = myDate.getDay();
+//                    myDay = myDate.getDate();
+//                }
+//            });
 
-                $('#edit').on('click', function () {
-                    editRow();
-                });
+            {{--$('#main').on('click', function(){--}}
+                {{--href="{{url("/user/password/email")}}"--}}
+            {{--})--}}
 
-                $('#edit2').on('click', function () {
-                    editEE();
-                })
+            $('#next').on('click', function () {
+
+                for (var i = 3; i < 10; i++) {
+                    $('table#shift thead tr th:nth-child(' + i + ')').text(myDay);
+                    $('table#shift thead tr td:nth-child(' + i + ')').text(Day[myD]);
+                    myDate.setDate(myDate.getDate() + 1);
+                    myD = myDate.getDay();
+                    myDay = myDate.getDate();
+                    myM = myDate.getMonth();
+                    obj[0].innerHTML = "<center>" + (myM + 1) + "月</center>"
+                }
             });
-
+        });
 
     </script>
 

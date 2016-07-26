@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ShiftAdmin;
 use App\Task;
 use Auth;
 use App\UserCustom;
@@ -29,15 +30,31 @@ class ShiftAdminLoginController extends Controller{
     public function loginCheck(){
         //Guardを選択()
         $auth = Auth::guard('shiftAdmin');
-
+        
         if ($auth->attempt(['id' => Request::get('id'), 'password' => Request::get('password')])) {
             // 認証通過…
-            return redirect()->intended('/shift/top');
+            session()->put('shift_admin_id', Request::get('id'));
+            return redirect()->intended('/shift/main');
         }else{
             return redirect()->back()
                 ->withErrors("ID または Passwordが違います")
                 ->withInput();
         }
+    }
+    //ログアウト処理
+    public function shiftAdminLogout(){
+        Auth::guard('shiftAdmin')->logout();
+        session()->forget('shift_admin_id');
+        return redirect("shift/login");   //test用
+    }
+
+    public function shiftAdminTop(){
+        return view('shiftAdminTop');
+    }
+    public function shiftAdminMain(){
+        $shift_admin = ShiftAdmin::find(Auth::guard('shiftAdmin')->id());
+        $store = $shift_admin->store->store;
+        return view('shiftAdminMain', ['store' => $store]);
     }
 
 }

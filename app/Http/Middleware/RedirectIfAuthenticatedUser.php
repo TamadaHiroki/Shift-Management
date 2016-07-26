@@ -19,7 +19,7 @@ class RedirectIfAuthenticatedUser
     {
         //ログインしているのにログイン画面にいこうとした場合、ログイン後のページに飛ばす
         if (Auth::guard('user')->check()) {
-            return redirect('/user/top');
+            return redirect('/user/main');
         }
 
         return $next($request);
