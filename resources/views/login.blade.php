@@ -24,8 +24,8 @@
                     </div>
 
                     <div class="already">
-                        <p>パスワードをお忘れですか？</p>
-                        <a href="{{url("/user/password/email")}}">再発行</a>
+                        {{--<p>パスワードをお忘れですか？</p>--}}
+                        {{--<a href="{{url("/user/password/email")}}">再発行</a>--}}
                     </div>
                 </div>
             </div>

@@ -31,7 +31,7 @@ class AdminLoginController extends Controller{
 
         if ($auth->attempt(['id' => Request::get('id'), 'password' => Request::get('password')])) {
             // 認証通過…
-            return redirect()->intended('/admin/top');
+            return redirect()->intended('/admin/main');
         }else{
             return redirect()->back()
                 ->withErrors("ID または Passwordが違います")

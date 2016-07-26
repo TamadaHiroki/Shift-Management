@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap Admin Theme v3</title>
+    <title>シフトマネージャー</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
 <body>
 
 <!-- ヘッダー -->
-@include('layouts.header')
+@include('ShiftMain.layouts.header')
 
 <!-- サイドバー -->
 
@@ -33,7 +33,7 @@
 </div>
 
 <!-- フッター -->
-@include('layouts.footer')
+@include('ShiftMain.layouts.footer')
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://code.jquery.com/jquery.js"></script>

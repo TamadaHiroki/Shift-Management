@@ -20,14 +20,15 @@
 					<h1>従業員一覧</h1>
 					<br>
 					<br>
-					 <button class="btn btn-info btn-lg"><i class="glyphicon glyphicon-cloud-upload"></i> 一覧インポート</button>
-					<button class="btn btn-info btn-lg"><i class="glyphicon glyphicon-cloud-download"></i> 一覧ダウンロード</button>
+					 {{--<button class="btn btn-info btn-lg"><i class="glyphicon glyphicon-cloud-upload"></i> 一覧インポート</button>--}}
+					{{--<button class="btn btn-info btn-lg"><i class="glyphicon glyphicon-cloud-download"></i> 一覧ダウンロード</button>--}}
 
 					<div class="panel-body">
 		  					<table class="table table-bordered">
 						<thead>
 							<tr>
 								<th>削除選択</th>
+								<th>従業員ID</th>
 								<th>名前       </th>
 								<th>電話          </th>
 								<th>メール        </th>
@@ -40,6 +41,7 @@
 							@foreach ($users as $user)
 							<tr>
 								<td><input type="checkbox" class="sakuzyo" name="select" value="{{$user->id}}" id="user_id"></td>
+								<td>{{$user->id}}</td>
 								<td class="user_name">{{$user->username}}</td>
 								<td>{{$user->tell}}</td>
 								<td>{{$user->email}}</td>
