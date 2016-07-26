@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="content-box-large">
+    <div class="content-box-large">
         <div class="panel-heading">
             <div class="panel-title"><h2>ポジション管理</h2></div>
         </div>

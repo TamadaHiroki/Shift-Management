@@ -28,13 +28,17 @@
                 @endforeach
                 </tbody>
             </table>
+            <div><b>編集をクリックして店舗名を指定してください</b></div>
+
             <center>
                 <button type="button" class="btn btn-primary" id="add" ><i class="glyphicon glyphicon-ok-sign"></i> 店舗追加 </button>
-                {{--<button type="button" class="btn btn-info" id="edit"><i class="glyphicon glyphicon-pencil"></i><span id="edit_text"> 編集 </span></button>--}}
-                {{--<button type="button" class="btn btn-success"><i class="glyphicon glyphicon-refresh"></i> 戻る </button>--}}
+                <button type="button" class="btn btn-info" id="edit"><i class="glyphicon glyphicon-pencil"></i><span id="edit_text"> 編集 </span></button>
+                <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-refresh"></i> 戻る </button>
             </center>
         </div>
     </div>
+
+
 @endsection
 
 
@@ -52,12 +56,13 @@
             addRow = function() {
                 $('#StoreList tbody').append('<tr id="col">' +
                         '<td class="storeid">' + (id += 1) +'</td>' +
-                        '<td class="editable">' + id + '号店</td>' +
+                        '<td class="editable">店舗名を入力</td>' +
                         '<td>' + (sid += 1) +'</td>' +
 //                        '<td class="editable">' + (passwd(6)) + '</td>' +
                         '<td><button type="button" class="btn btn-danger btn-xs" value="' + id + '"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button></td>' +
                         '</tr>');
             };
+
 
             $('#add').on('click', function() {
                 addRow();
@@ -86,6 +91,8 @@
 //                    flag=true
 //                }
 //            });
+            var array = new Array();
+
             $('#edit').on('click',function () {
                 if(flag){
                     $("#StoreList > tbody").on('click','tr > td.editable',edit_toggle());
@@ -99,17 +106,29 @@
                     $("#edit_text").text(" 編集 ");
                     flag=true
 
-                    var tbl = document.getElementById('StoreList').items(0);
+                    //alert($('#StoreList').get(0));
+
+                    var tbl = $('#StoreList').get(0);
+                    //var tbl = document.getElementById('#StoreList').items(0);
                     var rows = tbl.rows.length;
                     var cols = tbl.rows[0].cells.length;
 
-                    {{--@foreach($cols as $col)--}}
-                        {{--$.post("/admin/main/update",--}}
-                            {{--{'id':tbl.rows[$col].cells[0].innerText},--}}
-                            {{--{'store':tbl.rows[$col].cells[1].innerText},--}}
-                            {{--{'sid':tbl.rows[$col].cells[2].innerText}--}}
-                        {{--)--}}
-                    {{--@endforeach--}}
+                    //alert(tbl.rows[2].cells[1].innerText);
+
+                    for(var i = 1; i < rows; i++) {
+                        array.push({
+                            'id': tbl.rows[i].cells[0].innerText,
+                            'store': tbl.rows[i].cells[1].innerText,
+                            'sid': tbl.rows[i].cells[2].innerText
+                        });
+                    }
+                    alert("更新しました");
+
+
+
+                        $.post("/admin/main/update",
+                                { 'array' : array}
+                        );
                 }
             });
 
@@ -134,10 +153,13 @@
             $(document).on("click", ".btn.btn-danger.btn-xs", function () {
                 var store_id = $(this).val();
                 tr = $(this).parent().parent();
-                // trのインデックスを取得して行を削除する
-                tr.remove();
 
+                    if(window.confirm("削除してよろしいですか？")){
 
+                        // trのインデックスを取得して行を削除する
+                        tr.remove();
+
+                    }
 
                 $.post("/admin/main/delete",
                     { 'id' : store_id},
@@ -215,4 +237,6 @@
         }
     </script>
 @endsection
+
+
 

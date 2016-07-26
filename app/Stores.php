@@ -14,13 +14,13 @@ class Stores extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'store', 'shift_admin_id',
+        'id', 'store', 'shift_admin_id','password'
     ];
 
     public function shift_admin(){
         return $this->belongsTo('App\ShiftAdmin', 'shift_admin_id', 'id');
     }
-    
+
     public function users(){
         return $this->hasMany('App\UserCustom', 'store_id', 'id');
     }

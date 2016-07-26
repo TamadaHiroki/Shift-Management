@@ -14,6 +14,7 @@ use Auth;
 use App\ShiftAdmin;
 use App\UserCustom;
 use Session;
+use Symfony\Component\HttpKernel\HttpCache\Store;
 use Validator;
 use Request;
 use App\Http\Requests;
@@ -39,14 +40,11 @@ class StoreListController extends Controller{
         $delete -> delete();
     }
     public function StoreUpdate(){
-        $id = Request::input('id');
-        $store = Request::input('store');
-        $sid = Request::input('sid');
 
-        $id ->update([$id]);
-        $store ->update([$store]);
-        $sid ->update([$sid]);
-
-
+        $array = Request::input('array');
+        foreach ($array as $ar){
+            $store = Stores::where('id', $ar['id'])->where('shift_admin_id', $ar['sid'])->first();
+            $store->fill($ar)->save();
+        }
     }
 }
