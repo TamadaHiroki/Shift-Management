@@ -11,14 +11,9 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
 class Shift extends Model{
-
+        
     protected $table = 'shift'; //テーブル名指定
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    
     protected $fillable = [
         'id', 'user_id', 'start', 'end'
     ];

@@ -116,18 +116,18 @@
                 {{--href="{{url("/user/password/email")}}"--}}
             {{--})--}}
 
-            $('#next').on('click', function () {
-
-                for (var i = 3; i < 10; i++) {
-                    $('table#shift thead tr th:nth-child(' + i + ')').text(myDay);
-                    $('table#shift thead tr td:nth-child(' + i + ')').text(Day[myD]);
-                    myDate.setDate(myDate.getDate() + 1);
-                    myD = myDate.getDay();
-                    myDay = myDate.getDate();
-                    myM = myDate.getMonth();
-                    obj[0].innerHTML = "<center>" + (myM + 1) + "月</center>"
-                }
-            });
+//            $('#next').on('click', function () {
+//
+//                for (var i = 3; i < 10; i++) {
+//                    $('table#shift thead tr th:nth-child(' + i + ')').text(myDay);
+//                    $('table#shift thead tr td:nth-child(' + i + ')').text(Day[myD]);
+//                    myDate.setDate(myDate.getDate() + 1);
+//                    myD = myDate.getDay();
+//                    myDay = myDate.getDate();
+//                    myM = myDate.getMonth();
+//                    obj[0].innerHTML = "<center>" + (myM + 1) + "月</center>"
+//                }
+//            });
         });
 
     </script>

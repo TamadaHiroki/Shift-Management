@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Position;
 use App\Shift;
+use App\siftmonth;
 use App\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
