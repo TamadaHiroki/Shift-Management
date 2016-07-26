@@ -87,10 +87,10 @@
 					$('#th_' + i).text(month[i-1]['month'] + "月" + month[i-1]['day'] + "日(" + month[i-1]['week'] + ")");
 					for(var j = 0; j < user_work.length; j++){		//ユーザー数
 						$('#name_' + user_work[j][0]['user_id']).siblings('.' + i).append(
-							'<select class="select_1" style="width: 40px" disabled><option value="">  </option></select> 時',
-								'<select class="select_2" style="width: 40px" disabled><option value="">  </option></select> 分から<br>',
-								'<select class="select_3" style="width: 40px" disabled><option value="">  </option></select> 時',
-								'<select class="select_4" style="width: 40px" disabled><option value="">  </option></select> 分まで <button class="btn btn-xs btn-danger">休み</button>'
+							'<select class="select_1" style="width: 40px" disabled><option value="">  </option></select> ：',
+								'<select class="select_2" style="width: 40px" disabled><option value="">  </option></select> ～<br>',
+								'<select class="select_3" style="width: 40px" disabled><option value="">  </option></select> ：',
+								'<select class="select_4" style="width: 40px" disabled><option value="">  </option></select>  <button class="btn btn-xs btn-danger">休み</button>'
 						);
 						createHour(j, month[i-1]['week_num'], month[i-1]['day']);
 						createMinute(j, month[i-1]['week_num'], month[i-1]['day']);

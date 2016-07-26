@@ -76,7 +76,7 @@
                                                                         <option value="{{$j}}">{{$j}}</option>
                                                                     @endif
                                                                 @endfor
-                                                            </select> 時
+                                                            </select> ：
                                                             <select name="select_2[]">
                                                                 <option value="">  </option>
                                                                 @for($j = 0; $j <= 45; $j = $j + 15)
@@ -86,7 +86,7 @@
                                                                         <option value="{{$j}}">{{$j}}</option>
                                                                     @endif
                                                                 @endfor
-                                                            </select> 分から<br>
+                                                            </select> ～<br>
                                                         </td>
                                                     @endif
                                                 @else
@@ -101,7 +101,7 @@
                                                                         <option value="{{$j}}">{{$j}}</option>
                                                                     @endif
                                                                 @endfor
-                                                            </select> 時
+                                                            </select> ：
                                                             <select name="select_2[]">
                                                                 <option value="">  </option>
                                                                 @for($j = 0; $j <= 45; $j = $j + 15)
@@ -111,7 +111,7 @@
                                                                         <option value="{{$j}}">{{$j}}</option>
                                                                     @endif
                                                                 @endfor
-                                                            </select> 分から<br>
+                                                            </select> ～<br>
                                                         </td>
                                                     @endif
                                                 @endif
@@ -134,7 +134,7 @@
                                                                         <option value="{{$j}}">{{$j}}</option>
                                                                     @endif
                                                                 @endfor
-                                                            </select> 時
+                                                            </select> ：
                                                             <select name="select_4[]">
                                                                 <option value="">  </option>
                                                                 @for($j = 0; $j <= 45; $j = $j + 15)
@@ -144,7 +144,7 @@
                                                                         <option value="{{$j}}">{{$j}}</option>
                                                                     @endif
                                                                 @endfor
-                                                            </select> 分まで
+                                                            </select>
                                                         </td>
                                                     @endif
                                                 @else
@@ -159,7 +159,7 @@
                                                                         <option value="{{$j}}">{{$j}}</option>
                                                                     @endif
                                                                 @endfor
-                                                            </select> 時
+                                                            </select> ：
                                                             <select name="select_4[]">
                                                                 <option value="">  </option>
                                                                 @for($j = 0; $j <= 45; $j = $j + 15)
@@ -169,7 +169,7 @@
                                                                         <option value="{{$j}}">{{$j}}</option>
                                                                     @endif
                                                                 @endfor
-                                                            </select> 分まで
+                                                            </select>
                                                         </td>
                                                     @endif
                                                 @endif

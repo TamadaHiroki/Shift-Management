@@ -63,13 +63,13 @@
 															@for($j = 6; $j <= 23; $j++)
 																<option value="{{$j}}">{{$j}}</option>
 															@endfor
-														</select> 時
+														</select> ：
 														<select name="select_2[]">
 															<option value="">  </option>
 															@for($j = 0; $j <= 45; $j = $j + 15)
 																<option value="{{$j}}">{{$j}}</option>
 															@endfor
-														</select> 分から<br>
+														</select> ～<br>
 													</td>
 												@endfor
 											</tr>
@@ -81,13 +81,13 @@
 															@for($j = 6; $j <= 23; $j++)
 																<option value="{{$j}}">{{$j}}</option>
 															@endfor
-														</select> 時
+														</select> ：
 														<select name="select_4[]">
 															<option value="">  </option>
 															@for($j = 0; $j <= 45; $j = $j + 15)
 																<option value="{{$j}}">{{$j}}</option>
 															@endfor
-														</select> 分まで
+														</select>
 													</td>
 												@endfor
 											</tr>

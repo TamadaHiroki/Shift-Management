@@ -115,6 +115,10 @@ Route::group(['middleware' => 'authShift:shiftAdmin', 'prefix' => 'shift'], func
 
     Route::get('/shiftview', 'ShiftController@index');
 
+    Route::get('index', function () {
+        return view('index');
+    });
+
     /**
      * 従業員管理画面のグループ
      */
@@ -177,15 +181,6 @@ Route::group(['middleware' => 'authAdmin:admin', 'prefix' => 'admin'], function 
     Route::post('/main/delete','StoreListController@StoreDelete');
     Route::post('/main/update','StoreListController@StoreUpdate');
 
-
-    Route::get('index', function () {
-        return view('index');
-    });
-
-    Route::get('admin/storeManage', function () {
-        return view('storeManage');
-    });
-
     Route::get('/logout', function ()    {
         // authミドルウェアが使用される
         Auth::guard('admin')->logout();
@@ -238,10 +233,6 @@ Route::get('passchange', function () {
 
 Route::get('index', function () {
     return view('index');
-});
-
-Route::get('admin/storeManage', function () {
-    return view('storeManage');
 });
 
 Route::get('month', function () {

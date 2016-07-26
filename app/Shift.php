@@ -31,14 +31,12 @@ class Shift extends Model{
     }
 
     public function getStartTime(){
-        date_default_timezone_set('Asia/Tokyo');
         $carbon = Carbon::parse($this->start);
-        $day = date('m/d');
-        return $carbon;//$carbon->format('h:i');
+        return $carbon->format('H:i');
     }
 
     public function getEndTime(){
         $carbon = Carbon::parse($this->end);
-        return $carbon->format('h:i');
+        return $carbon->format('H:i');
     }
 }

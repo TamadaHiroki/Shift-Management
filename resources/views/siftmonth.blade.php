@@ -1,4 +1,4 @@
-@extends('layouts.noside_master')
+@extends('layouts.master')
 
 @section('content')
     <?php use Carbon\Carbon; ?>

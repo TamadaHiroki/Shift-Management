@@ -15,11 +15,11 @@ class ShiftAdminTableSeeder extends Seeder
 
         DB::table('shift_admin')->insert([
             'password' => Hash::make('ecc'),    //パスワードはハッシュ値しないといけない
-            'email' => 'ecc@gmail.com',
+            'email' => 'tsujikawa@ecccomp.com',
         ]);
         DB::table('shift_admin')->insert([
             'password' => Hash::make('ecc'),    //パスワードはハッシュ値しないといけない
-            'email' => 'ecc@gmail.com',
+            'email' => 'yoshida@ecccomp.com',
         ]);
     }
 }

@@ -15,7 +15,7 @@ class AdminTableSeeder extends Seeder
 
         DB::table('admin')->insert([
             'password' => Hash::make('ecc'),    //パスワードはハッシュ値しないといけない
-            'email' => 'ecc@gmail.com',
+            'email' => 'hatake@ecccomp.com',
         ]);
     }
 }

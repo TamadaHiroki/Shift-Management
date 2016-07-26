@@ -1,20 +1,7 @@
 @extends('ShiftMain.layouts.master')
 
-@section('title')
-    @@parent
-    @endsection
-
-@section('header')
-    @@parent
-    @endsection
-
-@section('sidebar')
-    @@parent
-    @endsection
-
 @section('content')
 	<div class="col-md-10">
-
   			<div class="content-box-large">
   				<div class="panel-heading">
 					<h1>従業員一覧</h1>
@@ -64,10 +51,6 @@
 	</div>
 @endsection
 
-@section('footer')
-    @@parent
-@endsection
-
 @section('javascript')
 	<script type="text/javascript">
 		$(function(){
@@ -89,8 +72,8 @@
 												'<p style="font-size: 18px">(' + week[data[0]['week_day']] + ') に勤務可能時間はありません</p>');
 									}else{
 										$('#modal_main').append(
-												'<p style="font-size: 18px">(' + week[data[0]['week_day']] + ') '+ data[0]['start_time'] + '時'
-												+ data[0]['start_minute'] +  '分 ～ ' + data[0]['end_time'] + '時'+ data[0]['end_minute'] + '分まで</p>');
+												'<p style="font-size: 18px">(' + week[data[0]['week_day']] + ') '+ ("0"+data[0]['start_time']).slice(-2) + '：'
+												+ ("0"+data[0]['start_minute']).slice(-2) +  ' ～ ' + ("0"+data[0]['end_time']).slice(-2) + '：'+ ("0"+data[0]['end_minute']).slice(-2) + '</p>');
 									}
 								}else{
 									if(data[i]['start_time'] == "0" || data[i]['end_time'] == "0"){
@@ -98,8 +81,8 @@
 												'<p style="font-size: 18px">(' + week[data[i]['week_day']] + ') に勤務可能時間はありません</p>');
 									}else{
 										$('#modal_main').append(
-												'<p style="font-size: 18px">(' + week[data[i]['week_day']] + ') '+ data[i]['start_time'] + '時'
-												+ data[i]['start_minute'] +  '分 ～ ' + data[i]['end_time'] + '時'+ data[i]['end_minute'] + '分まで</p>');
+												'<p style="font-size: 18px">(' + week[data[i]['week_day']] + ') '+ ("0"+data[i]['start_time']).slice(-2) + '：'
+												+ ("0"+data[i]['start_minute']).slice(-2) +  ' ～ ' + ("0"+data[i]['end_time']).slice(-2) + '：'+ ("0"+data[i]['end_minute']).slice(-2) + '</p>');
 									}
 								}
 							}

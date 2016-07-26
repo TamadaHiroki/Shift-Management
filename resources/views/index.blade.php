@@ -1,31 +1,32 @@
-@extends('layouts.noside_master')
+@extends('ShiftMain.layouts.master')
 
 @section('content')
-    <div class="content-box-large">
-    <div class="content-box-large">
-        <div class="panel-heading">
-            <div class="panel-title"><h2>ポジション管理</h2></div>
-        </div>
-        <div class="panel-body">
-            <table id="example" class="table table-striped table-bordered" border="0" cellpadding="0" cellspacing="0" width="100%">
-                <thead>
-                <tr>
-                    <th>ポジションID</th>
-                    <th>ポジション名</th>
-                    <th>業務開始時間</th>
-                    <th>業務終了時間</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-            <center>
-                <button type="button" class="btn btn-primary" id="add"><i class="glyphicon glyphicon-ok-sign"></i> 登録 </button>
-                <button type="button" class="btn btn-info" id="edit"><i class="glyphicon glyphicon-pencil"></i><span id="edit_text"> 編集 </span></button>
-                {{--<button type="button" class="btn btn-danger" id="delete"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button>--}}
-                <button type="button" class="btn btn-success" onclick="location.href='/shift/shiftmain'")><i class="glyphicon glyphicon-refresh"></i> 戻る </button>
-            </center>
+    <div class="col-md-10">
+        <div class="content-box-large">
+            <div class="panel-heading">
+                <div class="panel-title"><h2>ポジション管理</h2></div>
+            </div>
+            <div class="panel-body">
+                <table id="example" class="table table-striped table-bordered" border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>ポジションID</th>
+                        <th>ポジション名</th>
+                        <th>業務開始時間</th>
+                        <th>業務終了時間</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <center>
+                    <button type="button" class="btn btn-primary" id="add"><i class="glyphicon glyphicon-ok-sign"></i> 登録 </button>
+                    <button type="button" class="btn btn-info" id="edit"><i class="glyphicon glyphicon-pencil"></i><span id="edit_text"> 編集 </span></button>
+                    {{--<button type="button" class="btn btn-danger" id="delete"><i class="glyphicon glyphicon-remove-circle"></i> 削除 </button>--}}
+                    <button type="button" class="btn btn-success" onclick="location.href='/shift/shiftmain'")><i class="glyphicon glyphicon-refresh"></i> 戻る </button>
+                </center>
+            </div>
         </div>
     </div>
 @endsection

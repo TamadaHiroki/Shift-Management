@@ -14,36 +14,28 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->truncate();
         
         DB::table('users')->insert([
-            'username' => 'test',
+            'username' => '向井 隆',
             'password' => Hash::make('ecc'),    //パスワードはハッシュ値しないといけない
-            'email' => 'ecc@gmail.com',
+            'email' => 'mukai@ecccomp.com',
             'store_id' => 1,
             'position_id' => 1,
-            'tell' => "0120-000-1234",
+            'tell' => "080-2645-7978",
         ]);
         DB::table('users')->insert([
-            'username' => 'test2',
-            'password' => Hash::make('ecc2'),    //パスワードはハッシュ値しないといけない
-            'email' => 'ecc@gmail.com',
+            'username' => '西村 隆平',
+            'password' => Hash::make('ecc'),    //パスワードはハッシュ値しないといけない
+            'email' => 'nishimura@ecccomp.com',
             'store_id' => 1,
             'position_id' => 2,
-            'tell' => "0120-000-5678",
+            'tell' => "090-1104-5182",
         ]);
         DB::table('users')->insert([
-            'username' => 'ECC君',
-            'password' => Hash::make('ecc2'),    //パスワードはハッシュ値しないといけない
-            'email' => 'ecc@gmail.com',
+            'username' => '佐古 ',
+            'password' => Hash::make('ecc'),    //パスワードはハッシュ値しないといけない
+            'email' => 'sako@ecccomp.com',
             'store_id' => 1,
             'position_id' => 4,
-            'tell' => "0120-000-5678",
-        ]);
-        DB::table('users')->insert([
-            'username' => 'ECCちゃん',
-            'password' => Hash::make('ecc2'),    //パスワードはハッシュ値しないといけない
-            'email' => 'ecc@gmail.com',
-            'store_id' => 1,
-            'position_id' => 1,
-            'tell' => "0120-000-5678",
+            'tell' => "080-6909-9222",
         ]);
     }
 }
