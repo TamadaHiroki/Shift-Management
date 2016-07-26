@@ -70,6 +70,7 @@
 	<script type="text/javascript">
 		$(function(){
 			$('.btn.btn-default.btn-xs').click(function () {
+				var week = ['日', '月', '火', '水', '木', '金', '土'];
 				$('#modal_save').hide();
 				$('#modal_title').text($(this).parent().siblings('.user_name').text() + " さんの勤務可能時間");
 				//alert($(this).val())
@@ -78,10 +79,20 @@
 						function(data){
 							//リクエストが成功した際に実行する関数
 							//モーダルウィンドウに結果を表示
-							for(var i = 0; i < data.length; i++){
-								$('#modal_main').text(data[i]['start_time']);
+							var text = "";
+							$('#modal_main').text("");
+							for(var i = 1; i <= data.length; i++){
+								if(i == 7){
+									$('#modal_main').append(
+											'<p style="font-size: 18px">(' + week[data[0]['week_day']] + ') '+ data[0]['start_time'] + '時'
+											+ data[0]['start_minute'] +  '分 ～ ' + data[0]['end_time'] + '時'+ data[0]['end_minute'] + '分まで</p>');
+								}else{
+									$('#modal_main').append(
+											'<p style="font-size: 18px">(' + week[data[i]['week_day']] + ') '+ data[i]['start_time'] + '時'
+											+ data[i]['start_minute'] +  '分 ～ ' + data[i]['end_time'] + '時'+ data[i]['end_minute'] + '分まで</p>');
+								}
 							}
-							//$('#modal_main').text(data[0]);
+							//$('#modal_main').text(text);
 							$('#sampleModal').modal();
 						}
 				);

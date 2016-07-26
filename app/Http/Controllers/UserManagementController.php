@@ -115,8 +115,8 @@ class UserManagementController extends Controller{
 
     //従業員の勤務可能時間表示
     public function manageWorkTime(){
-        $work_time = UserWorkTime::where('user_id', Request::input('user_id'))->get();
-        $work_time = self::formatTimes($work_time);
+        $work_time = UserWorkTime::where('user_id', Request::input('user_id'))->orderBy('week_day', 'asc')->get();
+        $work_time = $this->formatTimes($work_time);
 
         return $work_time;
     }

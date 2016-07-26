@@ -219,12 +219,13 @@
 					if(this.innerHTML == "修正"){
 						this.innerHTML = "休み";	//押されたところのテキストを変更
 						$(this).parent().children('select').attr('disabled', 'disabled');
+						$(this).parent().css('background-color', '#CCFFFF');
 
 
 					}else{
 						this.innerHTML = "修正";	//押されたところのテキストを変更
 						$(this).parent().children('select').removeAttr('disabled');
-
+						$(this).parent().css('background-color', '#6CBB5A');
 					}
 				});
 
@@ -245,6 +246,7 @@
 						if(week == user_work[user_num][index]['week_day']) {		//曜日が一致するとき
 							if(user_work[user_num][index]['start_hour'] == 0 || user_work[user_num][index]['end_hour'] == 0){
 								$('#name_' + user_work[user_num][0]['user_id']).siblings('.' + count).children('.btn.btn-xs.btn-danger').remove();
+								$('#name_' + user_work[user_num][0]['user_id']).siblings('.' + count).css('background-color', '#e4e4e4')//#eeeeee
 							}
 
 							for(var j = 6; j <= 23; j++){
@@ -256,6 +258,7 @@
 									//入力値があれば<select>のenabledをonにする
 									$('#name_' + user_work[user_num][0]['user_id']).siblings('.' + count).children('select').removeAttr('disabled');
 									$('#name_' + user_work[user_num][0]['user_id']).siblings('.' + count).children('.btn.btn-xs.btn-danger').text('修正');
+									$('#name_' + user_work[user_num][0]['user_id']).siblings('.' + count).css('background-color', '#6CBB5A');
 
 								}else if(j >= user_work[user_num][index]['start_hour']) {
 									if(user_work[user_num][index]['end_hour'] >= j){		//始まりの時間の終わりは、終わりの時間までの表示
@@ -338,6 +341,7 @@
 						for(var k = 0; k < user_work.length; k++){		//ユーザー数
 							$('#name_' + user_work[k][0]['user_id']).siblings('.' + j).children().remove();		//元々あった<select>などを削除
 							$('#name_' + user_work[k][0]['user_id']).siblings('.' + j).text("");
+							$('#name_' + user_work[k][0]['user_id']).siblings('.' + j).css('background-color', '#CCFFFF');
 							$('#name_' + user_work[k][0]['user_id']).siblings('.' + j).append(
 									'<select class="select_1" style="width: 40px" disabled><option value="">  </option></select> 時',
 									'<select class="select_2" style="width: 40px" disabled><option value="">  </option></select> 分から<br>',
