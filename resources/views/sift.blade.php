@@ -17,13 +17,13 @@
                 {{--<button class="btn btn-info btn-lg" id="prev"> 先週</button>--}}
                 {{--<button class="btn btn-info btn-lg" id="next"> 次週</button>--}}
                 {{--</form>--}}
-                @if(Auth::guard('shiftAdmin')->check())
+                {{--@if(Auth::guard('shiftAdmin')->check())--}}
                     {{--<button class="btn btn-info btn-lg" id="main" onclick="location.href='/shift/main'"> 戻る</button>--}}
-                    <button class="btn btn-info btn-lg" onclick="location.href='/month'"> 1ヶ月表示</button>
-                @else
+                    {{--<button class="btn btn-info btn-lg" onclick="location.href='/month'"> 1ヶ月表示</button>--}}
+                {{--@else--}}
                     {{--<button class="btn btn-info btn-lg" id="main" onclick="location.href='/user/main'"> 戻る</button>--}}
-                    <button class="btn btn-info btn-lg" onclick="location.href='/month'"> 1ヶ月表示</button>
-                @endif
+                    {{--<button class="btn btn-info btn-lg" onclick="location.href='/month'"> 1ヶ月表示</button>--}}
+                {{--@endif--}}
 
                 <h3 class="month" align="center">{{$test4}}月</h3>
                 @if(Auth::guard('user')->check())

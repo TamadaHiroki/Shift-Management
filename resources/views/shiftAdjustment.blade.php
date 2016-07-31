@@ -18,7 +18,7 @@
 			 	<div class="content-box-large">
 						<h1>シフト割り当て</h1>
 
-				<button class="btn btn-info btn-sm">自動割り当て</button>
+				{{--<button class="btn btn-info btn-sm">自動割り当て</button>--}}
 					<button class="btn btn-info btn-sm" id="back">先週</button>
 					<button class="btn btn-info btn-sm" id="next">次週</button>
 					<br>

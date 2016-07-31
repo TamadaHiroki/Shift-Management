@@ -28,7 +28,7 @@
 							@foreach ($users as $user)
 							<tr>
 								<td><input type="checkbox" class="sakuzyo" name="select" value="{{$user->id}}" id="user_id"></td>
-								<td>{{$user->id}}</td>
+								<td>{{"201608".sprintf('%02d', $user->id)}}</td>
 								<td class="user_name">{{$user->username}}</td>
 								<td>{{$user->tell}}</td>
 								<td>{{$user->email}}</td>
