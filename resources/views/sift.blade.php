@@ -1,6 +1,13 @@
 @extends(Auth::guard('shiftAdmin')->check() ? 'ShiftMain.layouts.master' : 'layouts.noside_master');
 
 @section('content')
+    <style type="text/css">
+        <!--
+        @media (max-width: 768px) {
+            html {width:540px;}
+        }
+        -->
+    </style>
     <?php use Carbon\Carbon; ?>
     @if(Auth::guard('shiftAdmin')->check())
         <div class="col-md-10">
