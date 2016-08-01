@@ -32,12 +32,12 @@ class ShiftAdminLoginController extends Controller{
         $auth = Auth::guard('shiftAdmin');
 
         $temp = Request::get('id');
-        $id = substr($temp, 0, strlen($temp) - 6);
+        $id = substr($temp, strlen($temp) - 2);
         $pass = Request::get('password');
 
         if ($auth->attempt(['id' => $id, 'password' => $pass])) {
             // 認証通過…
-            session()->put('shift_admin_id', Request::get('id'));
+            session()->put('shift_admin_id', $id);
             return redirect()->intended('/shift/main');
         }else{
             return redirect()->back()

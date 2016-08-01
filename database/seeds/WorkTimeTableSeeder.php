@@ -31,14 +31,8 @@ class WorkTimeTableSeeder extends Seeder
             'start_time' => '10:30:00',
             'end_time' => '21:45:00',
         ]);
-        DB::table('user_worktime')->insert([
-            'user_id' => 4,
-            'week_day' => '0',  //0：日曜日
-            'start_time' => '00:00:00',
-            'end_time' => '00:00:00',
-        ]);
 
-        for($i = 1; $i < 5; $i++){
+        for($i = 1; $i < 4; $i++){
             DB::table('user_worktime')->insert([
                 'user_id' => $i,
                 'week_day' => '1',  //１：月曜日

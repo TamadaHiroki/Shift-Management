@@ -35,7 +35,7 @@ class UserLoginController extends Controller{
         $auth = Auth::guard('user');
 
         $temp = Request::get('id');
-        $id = substr($temp, 0, strlen($temp) - 6);
+        $id = substr($temp, strlen($temp) - 2);
         $pass = Request::get('password');
 
         if ($auth->attempt(['id' => $id, 'password' => $pass])) {

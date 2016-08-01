@@ -33,7 +33,7 @@
             <center>
                 <button type="button" class="btn btn-primary" id="add" ><i class="glyphicon glyphicon-ok-sign"></i> 店舗追加 </button>
                 <button type="button" class="btn btn-info" id="edit"><i class="glyphicon glyphicon-pencil"></i><span id="edit_text"> 編集 </span></button>
-                <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-refresh"></i> 戻る </button>
+                {{--<button type="button" class="btn btn-success"><i class="glyphicon glyphicon-refresh"></i> 戻る </button>--}}
             </center>
         </div>
     </div>
